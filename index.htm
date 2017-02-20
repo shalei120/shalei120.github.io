@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lei Sha</title>
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/ico">
+
+    <link rel="stylesheet" href="css/main.css" media="screen">
+    <link rel="stylesheet" href="css/flexslider.css" media="screen">
+    <link rel="stylesheet" href="css/fancybox-light.css" media="screen">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+    <script>
+        if (window.location.hash.indexOf('#!') !== -1) window.location.hash = '';
+    </script>
+</head>
+
+    <body>
+
+        <audio><source src="audio/sound.mp3"/></audio>
+
+        <!-- Main Content -->
+        <div class="shadow"><!-- Used for shadow behind main content -->
+        <div id="content-wrapper">
+
+            <!-- Logo Demo -->
+            <a href="http://www.pku.edu.cn" id="demo-logo" style="margin-right:-50px;">
+                <img src="images/pkulogo.png" style="width:60%; margin-left:60px;" alt="" />
+            </a><!-- /Logo Demo -->
+
+            <!-- ABOUTME -->
+            <div id="aboutme">
+
+                <div class="slider-wrapper"><!-- Flexslider -->
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <img src="images/IMG_1627.jpg" alt="" />
+                            </li>
+                            <!--li>
+                                <img src="images/diyi_erie_4_3.JPG" alt="" />
+                            </li>
+                            <li>
+                                <img src="images/diyi_gsm_lake_4_3.jpg" alt="" />
+                            </li-->
+                        </ul>
+                    </div>
+                </div><!-- /Flexslider -->
+
+                <div class="about-wrapper">
+                    <div class="title">
+                        <h1>Lei Sha</h1>
+                        <h5>Ph.D Student, ICL@PKU</h5>
+                    </div>
+                    <div class="download-card"><!-- Button Download vCard -->
+                        <a class="button" href="docs/shaleiCV.pdf"><!-- Button Download vCard -->
+                            <div class="button-medium button-red">
+                                <div class="button-anim"></div>
+                                <div class="button-medium-label">Resume</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="info-slider"><!-- info-slider -->
+                        <div class="info-slide-list">
+                            <div class="info-slide-wrapper"><!-- info-slide-wrapper -->
+
+                                <div class="info-slide-item"><!-- info-slide-item -->
+                                    <div class="top-border-red">
+                                        <p> I work on question answering related techniques, including event extraction, textual inference, answer selection and answer generation. 
+                                            <br> <br>
+                                           I am very lucky to be co-advised by Zhifang Sui, Baobao Chang and Sujian Li.  
+                                              <br><br>
+                                        	I am seeking for NLP-related positions. If you are interested, please contact me.
+                                        
+                                        </p>
+                                    </div>
+                                
+                                    <div class="top-border-blue">
+                                        <div class="left-column">
+                                            <ul class="main-info-list">
+                                                <li>Name<span>Lei Sha</span></li>
+                                                <li>Weibo<span><a href="http://weibo.com/1615991052/">Implement_Alan_Shore</a></span></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="right-column">
+                                            <ul class="main-info-list">
+                                                <li>Phone<span>(+86)13521038522</span></li>
+                                                <li>Email<span>shalei[AT]pku.edu.cn</span></li>
+                                                <li>Office<span>Science Building No.1, 1448N</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div><!-- /Info Slider -->
+                </div>
+
+                <div class="floatlimit"></div>
+
+            </div><!-- /AboutMe -->
+
+            <!-- NAVIGATION -->
+            <div id="nav">
+
+                <!--div id="logo">
+                    <h2>Lei Sha</h2>
+                </div-->
+
+                <ul class="etabs">
+                    <li class="tab tab-main sound">
+                        <a href="#aboutme" class="gradient-red">
+                            <!--div class="navicon-about"></div-->
+                            <i class="fa fa-home fa-3x navicon-about"></i>
+                            <div class="navicon-text">Home</div>
+                            <div class="uhere-text">Home</div>
+                        </a>
+                    </li>
+                    <li class="tab tab-notmain sound">
+                        <a href="#education" class="gradient-blue">
+                            <!--div class="navicon-resume"></div-->
+                            <i class="fa fa-graduation-cap fa-3x navicon-resume"></i>
+                            <div class="navicon-text">Education</div>
+                        </a>
+                    </li>
+                    <li id = "click-pub" class="tab tab-notmain sound">
+                        <a href="#publication" class="gradient-green">
+                            <i class="fa fa-book fa-3x navicon-portfolio"></i>
+                            <!--div class="navicon-portfolio"></div-->
+                            <div class="navicon-text">Publication</div>
+                        </a>
+                    </li>
+                    <li class="tab tab-notmain sound">
+                        <a href="#links" class="gradient-yellow">
+                            <!--div class="navicon-contact"></div-->
+                            <i class="fa fa-tasks fa-3x navicon-contact"></i>
+                            <div class="navicon-text">Links</div>
+                        </a>
+                    </li>
+                    <li class="tab tab-notmain sound">
+                        <a href="#blog" class="gradient-grey">
+                            <!--div class="navicon-contact"></div-->
+                            <i class="fa fa-folder-open-o fa-3x navicon-contact"></i>
+                            <div class="navicon-text">Blogs</div>
+                        </a>
+                    </li>
+                </ul>
+
+            </div><!-- /NAVIGATION -->
+
+            <!-- RESUME -->
+            <div id="education" class="span-top">
+                <div class="fill-blue">Education</div>
+
+                
+
+                <div class="full-width">
+                    <!--div class="substrate gradient-blue font-blue">
+                        <h2>About Me</h2>
+                        <h3>Hi, My name is John...</h3>
+                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    </div-->
+                    <div class="substrate">
+                        <h2><b>EDUCATION</b></h2>
+                        <div class="left-blue">
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h3>Ph.D in Institute of Computational Linguistics<span class="time-period-right-blue">2013 - Present</span></h3>
+                            <h4><a href="http://www.pku.edu.cn/">Peking University</a></h4>
+                            <p>Advised by Zhifang Sui.</p>
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h3>Bachelor of Computer Science<span class="time-period-right-blue">2009 - 2013</span></h3>
+                            <h4><a href="">Beijing University of Technology</a></h4>
+                            <p><a href="">Experimented Class</a>, advised by Zongli Jiang.</p>
+                        </div>
+                    </div>
+                    <div class="substrate">
+                        <h2><b>AWARDS & HONORS</b></h2>
+                        <div class="left-blue">
+		    	    
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h4>Peking University PhD Fellowship<span class="time-period-right-blue">2015</span></h4>
+                            
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h4>The 3rd Prize in the ACM contest of Peking University<span class="time-period-right-blue">2014</span></h4>
+                            
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h4>The first Prize in the 3rd "Lanqiao Cup" National Software Professional Design and Business Competition<span class="time-period-right-blue">2012</span></h4>
+                            
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h4>Beichuan Scholarship (one out of two in my grade)<span class="time-period-right-blue">2011</span></h4>
+                            
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h4>National Scholarship(The only one in my grade)<span class="time-period-right-blue">2011</span></h4>
+                            
+                            
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h4>The National 2nd Prize in the China Undergraduate Mathematical Contest in Modeling<span class="time-period-right-blue">2011</span></h4>
+                            
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h4>The 2nd prize in Chinese Mathematical Contest (Beijing division)<span class="time-period-right-blue">2010</span></h4>
+
+                           
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fill-blue">Experience</div>
+                <div class="full-width">
+                    <div class="substrate">
+                        <h2><b>INTERNSHIPS</b></h2>
+                        <div class="left-blue">
+                            <!--div class="time-period-left-yellow"></div>
+                            <h3>Research & Engineering Intern<span class="time-period-right-yellow">Feb 2017 - Aug 2017</span></h3>
+                            <h4><a href="http://www.chuangxin.com/">Sinovation Ventures</a></h4>
+                            <p>Artificial Intelligence Group, advised by Kai-fu Lee</a>.</p-->
+                            
+                             
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h3>Research Intern<span class="time-period-right-blue">Nov 2014 - Jun 2015</span></h3>
+                            <h4><a href="http://research.microsoft.com/en-us/labs/asia/">Microsoft Research Asia</a></h4>
+                            <p><a href="https://www.microsoft.com/en-us/research/group/knowledge-computing/">Knowledge Computing Group</a>, advised by <a href="http://research.microsoft.com/en-us/people/cyl/">Chin-Yew Lin</a>.</p>
+                        </div>
+                    </div>
+                    <!--div class="substrate">
+                        <h2><b>SERVICES</b></h2>
+                        <div class="left-yellow">
+                            <div class="time-period-left-yellow"></div>
+                            <h3>Reviewer<span class="time-period-right-yellow">2017</span></h3>
+			    <h4>ACL, EACL</h4>
+			    <h3>Reviewer<span class="time-period-right-yellow">2016</span></h3>
+                            <h4>NAACL, EMNLP, LREC</h4>
+                        </div>
+                    </div-->
+                    <div class="substrate">
+                        <h2><b>Co-Supervised Students</b></h2>
+                        <div class="left-blue">
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                           <h4>Feng Qian, undergraduate (with publication in ACL'2017)<span class="time-period-right-blue">Oct 2016 - Feb 2017</span></h4>
+												</div>
+                    </div>
+                    <div class="substrate">
+                        <h2><b>Teaching Assistant</b></h2>
+                        <div class="left-blue">
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                           <h4>TA of Introduction to Computer Science<span class="time-period-right-blue">Seq 2015 - Feb 2016</span></h4>
+												 <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                           <h4>TA of JAVA Programming<span class="time-period-right-blue">Feb 2015 - Jun 2015</span></h4>
+												
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                           <h4>TA of C/C++ Programming and Algorithm<span class="time-period-right-blue">Seq 2014 - Feb 2015</span></h4>
+												
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                           <h4>TA of Introduction to Computer Science<span class="time-period-right-blue">Seq 2014 - Feb 2015</span></h4>
+												
+                            <div class="time-period-left-blue"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                           <h4>TA of Introduction to Computer Science<span class="time-period-right-blue">Seq 2013 - Feb 2014</span></h4>
+												</div>
+                    </div>
+                </div>
+
+                <div class="floatlimit"></div>
+
+            </div><!-- /RESUME -->
+
+            <!-- PORTFOLIO -->
+            <div id="publication" class="span-top">
+                <div class="fill-green">Publications</div>
+
+                <div class="full-width">
+                                       
+                    <!--ul id="portfolio-filter">
+                        <li>
+                            <a id ="click-conf" href="" class="button current" data-filter=".f-conference">
+                                <div class="button-small button-green">
+                                    <div class="button-anim-border"></div>
+                                    <div class="button-small-label">Conference</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="button" data-filter=".f-journal">
+                                <div class="button-small button-green">
+                                    <div class="button-anim-border"></div>
+                                    <div class="button-small-label">Journal</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="button" data-filter=".f-workshop">
+                                <div class="button-small button-green">
+                                    <div class="button-anim-border"></div>
+                                    <div class="button-small-label">Workshop</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul--><!-- /Portfolio filter -->
+                    
+                    <ol class="portfolio-content top-border-green" reversed><!-- Portfolio Content --><!-- See Documentation for more info -->
+												<li class="f-conference view">
+												   <em>Reading and Thinking: Re-read LSTM Unit for Textual Entailment Recognition</em><br>
+												   <b>Lei Sha</b>, Baobao Chang, Zhifang Sui and Sujian Li<br>
+												   In Proceedings of Coling 2016 Conference, 2016. (<b>Coling 2016</b>). <br>
+												   <a href="https://www.aclweb.org/anthology/C/C16/C16-1270.pdf">[PDF]</a>
+												</li>
+                        <li class="f-conference view">
+                            <em>Capturing Argument Relationship for Chinese Semantic Role Labeling</em> <br>
+                            <b>Lei Sha</b>, Tingsong Jiang, Sujian Li, Baobao Chang and Zhifang Sui<br>
+	                        In Proceedings of EMNLP 2016 Conference, 2016. (<b>EMNLP 2016</b>).<br>
+	                         <a href="http://aclweb.org/anthology/D16-1212">[PDF]</a>
+                        <br>
+												</li>
+                        <li class="f-conference view">
+                            <em>RBPB: Regularization-Based Pattern Balancing Method for Event Extraction</em> <br>
+                            <b>Lei Sha</b>, Jing Liu, Chin-Yew Lin, Sujian Li, Baobao Chang and Zhifang Sui <br>
+ 	                        In Proceedings of ACL 2016 Conference, 2016. (<b>ACL 2016</b>). <br>
+ 	                        <a href="http://aclweb.org/anthology/P16-1116.pdf">[PDF]</a>
+                        </li>
+                        <li class="f-conference view">
+                            <em>Joint Learning Templates and Slots for Event Schema Induction</em> <br>
+                            <b>Lei Sha</b>, Sujian Li, Baobao Chang and Zhifang Sui.</br> In Proceedings of NAACL 2016 Conference, 2016. (<b>NAACL 2016</b>). <br>
+                            <a href="http://arxiv.org/pdf/1603.01333v1.pdf">[arxiv(including supplement material)]</a><a href="http://aclweb.org/anthology/N16-1049.pdf">[PDF]</a>
+                        </li>
+                        <li class="f-conference view">
+                            <em>Recognizing Textual Entailment Using Probabilistic Inference</em><br>
+		                    <b>Lei Sha</b>, Sujian Li, Tingsong Jiang, Baobao Chang, and Zhifang Sui.</br> In Proceedings of the EMNLP 2015 Conference, 2015. (<b>EMNLP 2015</b>).<br>
+		                     <a href="http://aclweb.org/anthology/D15-1185.pdf">[PDF]</a>
+                        </li>
+                        <li class="f-conference view">
+                            <em>Attentive Interactive Neural Networks for Answer Selection in Community Question Answering</em> <br>
+                            Xiaodong Zhang, <b>Lei Sha</b>, Sujian Li, Houfeng Wang <br>
+		                   In Proceedings of AAAI 2017 Conference, 2016. (<b>AAAI 2017</b>).
+                        </li>
+                        <li class="f-conference view">
+                            <em>Encoding Temporal Information for Time-Aware Link Prediction</em><br>
+                            Tingsong Jiang, Tianyu Liu, Tao Ge, <b>Lei Sha</b>, Sujian Li, Baobao Chang and Zhifang Sui.<br>
+		                    In Proceedings of EMNLP 2016 Conference, 2016. (<b>EMNLP 2016</b>).
+                        </li>
+                        <li class="f-conference view">
+                            <em>Towards Time-Aware Knowledge Graph Completion</em> <br>
+		                    Tingsong Jiang, Tianyu Liu, Tao Ge, <b>Lei Sha</b>, Sujian Li, Baobao Chang and Zhifang Sui<br>
+		                    In Proceedings of Coling 2016 Conference, 2016. (<b>Coling 2016</b>).
+                        </li>
+                        <li class="f-conference view">
+                            <em>Multi-label Text Categorization with Joint Learning Predictions-as-Features Method</em> <br>
+                            Li Li, Houfeng Wang, <b>Lei Sha</b>, Xu Sun, Baobao Chang, Shi Zhao.<br>
+		                    In Proceedings of EMNLP 2015 Conference, 2015. (<b>EMNLP 2015</b>).
+                        </li>
+                        <li class="f-conference view">
+                            <em>Event Schema Induction Based on Relational Co-occurrence over Multiple Documents</em> <br>
+		                    Tingsong Jiang, <b>Lei Sha</b> and Zhifang Sui <br>
+		                    In Proceedings of Natural Language Processing and Chinese Computing, 2014. (<b>NLPCC 2014</b>).
+                        </li>
+                       
+
+                    </ol>
+                    <ol class="portfolio-content" reversed><!-- Portfolio Content --><!-- See Documentation for more info -->
+                        
+
+                    </ol>
+                    <ol class="portfolio-content" reversed><!-- Portfolio Content --><!-- See Documentation for more info -->
+			
+                    </ol><!-- /Portfolio Content -->
+                </div>
+
+                <div class="floatlimit"></div>
+
+            </div><!-- /PORTFOLIO -->
+
+            <!-- CONTACTS -->
+            <div id="links" class="span-top">
+                <div class="fill-yellow">Useful Links</div>
+                <div class="full-width">
+                    <div class="substrate">
+                        <h2><b>Friends</b></h2>
+                        <div class="left-yellow">
+                             
+                            <div class="time-period-left-yellow"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h3><a href="http://getao.github.io/index.html">Tao Ge (葛涛)</a></h3>
+                            <h4>My senior, talented NLPer, focusing on Event Chronicle Generation, Burst Graph Decipherment</h4>
+                             
+                             
+                            <div class="time-period-left-yellow"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                           <h3><a href="http://sei.pku.edu.cn/~moull12/">Lili Mou (Male)(牟力立)</a></h3>
+                            <h4>My senior, talented NLPer, focusing on deep learning applied to natural language processing as well 
+as programming language processing</h4>
+                           
+                           
+                            <div class="time-period-left-yellow"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                             <h3><a href="http://www4.comp.polyu.edu.hk/~cszqcao/">Ziqiang Cao (曹自强)</a></h3>
+                            <h4>My senior, talented NLPer, focusing on document summarization and deep learning</h4>
+                           
+                             
+                            <div class="time-period-left-yellow"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h3><a href="http://zxdcs.github.io/">Xiaodong Zhang (张晓东)</a></h3>
+                            <h4>My classmate, focusing on answer selection and dialogue generation</h4>
+                          
+                             
+                            <div class="time-period-left-yellow"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h3><a href="http://nlp-yang.github.io/">Yang liu (刘洋)</a></h3>
+                            <h4>My classmate, focusing on  Relation Classification and Discourse Parsing</h4>
+                          
+                             
+                            <div class="time-period-left-yellow"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h3><a href="http://naoki.sexy">Naoki Otani (大谷直樹)</h3>
+                            <h4>A friendly Japanese researcher, focusing on natural language processing and machine learning, including knowledge acquisition and quality control in crowdsourcing.</h4>
+                          
+                             
+                             <div class="time-period-left-yellow"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                            <h3><a href="http://jolinxql.github.io/">Qiaolin Xia (夏乔林)</a></h3>
+                            <h4>My junior, focusing on  AMR</h4>
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="substrate">
+                        <h2><b>Resources</b></h2>
+                        <div class="left-yellow">
+                            <div class="time-period-left-yellow"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                           <h4><a href="http://www.yinwang.org/">The revolutionist Yin Wang's Blog</a></h4>
+                           
+                           
+                            <div class="time-period-left-yellow"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                           <h4><a href="http://web.stanford.edu/~jiweil/">Jiwei Li's Homepage</a></h4>
+                           
+                            <div class="time-period-left-yellow"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                           <h4>ACL anthology: <a href="http://aclweb.org/anthology/">old</a> <a href="http://aclanthology.info/">new</a></h4>
+                           
+                            <div class="time-period-left-yellow"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                           <h4><a href="http://www.gotoli.us/">Li Li's machine learning blog (Chinese)</a></h4>
+                           
+                            <div class="time-period-left-yellow"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                           <h4><a href="http://www.52nlp.cn/">I love NLP</a></h4>
+                           
+                           <div class="time-period-left-yellow"></div><!-- Keep empty. This class used for creating a point on the line. Use "time-period-right-***".-->
+                           <h4><a href = "http://weibo.com/1921046714/">rs</a>'s <a href="http://rsarxiv.github.io/archives/">machine learning blog (Chinese)</a></h4>
+												</div>
+                    </div>
+                    <div class="substrate">
+                        <h2><b>Visiting Map</b></h2>
+                        <a href="https://clustrmaps.com/site/x6gl" title="Visit tracker"><img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=a&d=bQeHF5auzkrIOFK-ka153qeyFpKScxohYLg-_cPJBFM" /></a>
+                    </div>
+                    
+                </div>
+
+                <div class="floatlimit"></div>
+
+            </div><!-- /CONTACTS -->
+
+            <!-- FOOTER -->
+            <div class="footer">
+                <div class="left-column"></div>
+                <div class="right-column">
+                    
+                    <div class="social"><!-- Social icons -->
+                        <ul>
+                            <li class="google-scholar">
+                                <a href=""><div class="icon-google-scholar"></div></a>
+                            </li>
+                            <li class="github">
+                                <a href=""><div class="icon-github"></div></a>
+                            </li>
+                            <li class="facebook">
+                                <a href=""><div class="icon-facebook"></div></a>
+                            </li>
+                            <li class="linkedin">
+                                <a href="http://www.linkedin.com/in/lei-sha-86720080/"><div class="icon-linkedin"></div></a>
+                            </li>
+                        </ul>
+                    </div><!-- /Social icons -->
+
+                </div>
+                <div class="floatlimit"></div>
+            </div><!-- /FOOTER -->
+
+        </div><!-- /Main Content -->
+        </div><!-- /Shadow -->
+
+    <script src="js/jquery.hashchange.min.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/jquery.easytabs.min.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/jquery.fancybox-media.js"></script>
+    <script src="js/jquery.infieldlabel.min.js"></script>
+    <script src="js/gmap3.min.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/settings.js"></script>
+                  	
+    
+    </body>
+
+</html>
