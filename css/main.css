@@ -295,7 +295,7 @@
 
 	/* Colored Elements */
 
-	.fill-red, .fill-blue, .fill-green, .fill-yellow {
+	.fill-red, .fill-blue, .fill-green, .fill-yellow, .fill-orange {
 		padding-left: 35px;
 		height: 45px;
 		color: #fff;
@@ -319,6 +319,9 @@
 
 	.fill-yellow {
 		background: #e0a637;
+	}
+	.fill-orange {
+		background: #FF9F0F;
 	}
 
 	/* Demo */
