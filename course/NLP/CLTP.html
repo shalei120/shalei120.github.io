@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0047)https://cs.stanford.edu/~ermon/cs228/index.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><!--
+	This document provides the basis of a semantically structured web page 
+	authored in XHTML 1.0 Transitional.
+--><head><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>计算语言学理论与实践（2023年秋）</title>
+	
+	<meta http-equiv="Content-Language" content="en-us">
+	<link rel="stylesheet" type="text/css" media="stanford" href="./Natural_Language_Processing_files/stanfordmodern.css">
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1098.0" data-gr-ext-installed="">
+
+<div id="header">
+	<table style="height: 100px;" border="0">
+	<tbody>
+		<tr>
+		<td style="text-align: center; width: 150px; height: 110px;"><img src="./Natural_Language_Processing_files/buaa.jpg" width="110" border="0" height="110" alt="Stanford Seal"></td>
+		<td style="width: 1000px; height: 150px;">
+		<h1><font color="#333399">计算语言学理论与实践</font></h1>
+		<h3>北京航空航天大学 / 人工智能研究院 / 2022-2023 秋</h3>
+        <!--div id="nav">
+			<a href="https://cs.stanford.edu/~ermon/cs228/cs228calendar.html">[Calendar]</a>&nbsp;
+			<a href="https://cs.stanford.edu/~ermon/cs228/index.html#announcements">[Announcements]</a>&nbsp;
+			<a href="https://cs.stanford.edu/~ermon/cs228/index.html#info">[General Information]</a>&nbsp;					
+			<a href="https://cs.stanford.edu/~ermon/cs228/index.html#coursework">[Coursework]</a>&nbsp;
+			<a href="https://cs.stanford.edu/~ermon/cs228/index.html#syllabus">[Syllabus]</a>&nbsp;
+			<a href="https://cs.stanford.edu/~ermon/cs228/index.html#resources">[Resources]</a>&nbsp;
+			<!--
+			<a href="#faqs">[FAQs]</a>
+			-->
+		<!--/di-->  
+		</td>
+		</tr>
+	</tbody>
+	</table>
+</div>
+
+<hr>
+
+<!-- The content div contains the main content of the page -->
+<div id="center">
+	<blockquote>
+		<h2><a name="announcements"><font color="#CC6666">通知公告</font></a></h2>
+		<!--ul style="list-style: none;">
+			<li><p>Important announcements will be posted on <a href="https://piazza.com/stanford/winter2018/cs228">Piazza</a>.</p></li>
+		</ul-->
+		
+		<h2><a name="info"><font color="#CC6666">课程信息</font></a></h2>
+		<ul style="list-style: none;">
+			<li><b>时间地点: </b>
+				<ul type="square">
+					<li>2-17周</li>
+					<li>每周周二8、9节，B216.</li>
+					<li>期末考试：第17周</li>
+				</ul>
+			</li>
+			<li><p><b>教师：</b><a href="https://shalei120.github.io">Lei Sha</a></p></li>
+			<!--li><b>Course Assistants: </b>
+				<ul type="square">
+					<li>Nishith Khandwala (<a href="mailto:nishith@stanford.edu">nishith@stanford.edu</a>)</li>
+					<li>Jonathan Kuck (<a href="mailto:kuck@stanford.edu">kuck@stanford.edu</a>)</li>
+					<li>Ya Le (<a href="mailto:yle@stanford.edu">yle@stanford.edu</a>)</li>
+					<li>Alisha Rege(<a href="mailto:amr6114@stanford.edu">amr6114@stanford.edu</a>)</li>
+					<li>Stephanie Wang (<a href="mailto:steph17@stanford.edu">steph17@stanford.edu</a>)</li>
+					<li>Moosa Zaidi(<a href="mailto:mzaidi@stanford.edu">mzaidi@stanford.edu</a>)</li>
+				</ul>
+			</li-->
+		</ul>
+	
+		<h2><a name="coursework"><font color="#CC6666">大作业</font></a></h2>
+		<ul style="list-style: none;">
+			<li><b>TBD</b>
+			 
+		</ul>
+			
+			
+		
+		<h2><a name="syllabus"><font color="#CC6666">参考书</font></a></h2>	
+			<ul type="square">
+				<!--li><p><i>Modeling and Reasoning with Bayesian networks</i> by Adnan Darwiche.</p></li-->
+				<!--li><p><i>Pattern Recognition and Machine Learning</i> by Chris Bishop.</p></li-->
+				<!--li><p><i>Machine Learning: a Probabilistic Perspective</i> by Kevin P. Murphy.</p></li-->
+				<!--li><p><i>Information Theory, Inference, and Learning Algorithms</i> by David J. C. Mackay. <a href="http://www.inference.phy.cam.ac.uk/mackay/itila/book.html">Available online</a>.</p></li>
+				<!--li><p><i>Bayesian Reasoning and Machine Learning</i> by David Barber. <a href="http://www.cs.ucl.ac.uk/staff/d.barber/brml/">Available online</a>.</p></li-->
+				<!--li><p><i>Graphical models, exponential families, and variational inference</i> by Martin J. Wainwright and Michael I. Jordan. <a href="https://www.eecs.berkeley.edu/~wainwrig/Papers/WaiJor08_FTML.pdf">Available online</a-->
+			</p></li></ul>
+			<br>
+			</li>
+			
+			<!--li><b>Grading Policy: </b>
+			<ul type="square">
+				<li><p><font color="blue">Homeworks</font> (70%): There will be five homeworks with both written and programming parts. Each homework is centered around an application and will also deepen your understanding of the theoretical concepts. Homeworks will be posted on <a href="https://piazza.com/stanford/winter2018/cs228">Piazza</a>. </p></li>
+			    <li><p><font color="blue">Final Exam</font> (30%): March 21, 8:30-11:30am </p></li>
+				<li><p><font color="blue">Piazza: </font> You will be awarded with up to 3% extra credit if you answer other students' questions in a substantial and helpful way, or contribute to the lecture notes with pull requests.</p></li>
+			</ul>
+			<br>
+			</li-->
+			
+			<!--li><b>Assignments: </b>
+			<ul type="square">
+				<li><p><font color="blue">Written Assignments: </font>
+				Homeworks should be written up clearly and succinctly; you may lose points if your answers are unclear or unnecessarily complicated. You are encouraged to use LaTeX to writeup your homeworks (here is a <a href="https://cs.stanford.edu/~ermon/cs228/hwtemplate.tex">template</a>), but this is not a requirement.</p></li>
+			
+				<li><p><font color="blue">Collaboration Policy and Honor Code: </font>
+				You are free to form study groups and discuss homeworks and projects. However, you must write up homeworks and code from scratch independently without referring to any notes from the joint session. You should not copy, refer to, or look at the solutions in preparing their answers from previous years' homeworks. It is an honor code violation to intentionally refer to a previous year's solutions, either official or written up by another student. Anybody violating the <a href="http://studentaffairs.stanford.edu/communitystandards/policy/honor-code">honor code</a> will be referred to the Office of Judicial Affairs.
+			    </p></li>
+			</ul>	
+			<br>
+			</li-->
+			
+			
+			
+		</ul>
+
+		<h2><a name="syllabus"><font color="#CC6666">课件</font></a></h2>
+		<ul style="list-style: none;">
+		<li>
+		<table style="width: 1300px; height: 300px;" border="1" cellpadding="1" cellspacing="0">
+		<tbody>
+        <tr align="center">
+          <td style="font-weight: bold;" width="40" align="center">Week</td>
+          <td width="50" align="center"><font color="#000000"><strong>Date</strong></font></td>
+          <td width="250" align="center"><font color="#000000"><strong>Topic</strong></font></td>
+          <td width="130" align="center"><font color="#000000"><strong>Readings</strong></font></td>
+          <td width="123" align="center"><font color="#000000"><strong>Assignments</strong></font></td>
+        </tr>
+        <tr align="center">
+          <td valign="middle">2</td>
+          <td valign="middle">Seq 12 </td>
+          <td valign="middle"><b><a href="./CLTP_files/slides/.pdf">自然语言处理概述</a></b></td>
+          <td>...</td>
+          <td>...</td>
+        </tr>
+       
+		<tr align="center">
+          <td valign="middle">16</td>
+          <td valign="middle">     </td>
+          <td valign="middle"><b>大作业展示</b></td>
+          <td>...</td>
+          <td>...</td>
+        </tr>
+		<tr align="center">
+          <td valign="middle">17</td>
+          <td valign="middle">    </td>
+          <td valign="middle"><b>期末笔试</b></td>
+          <td>...</td>
+          <td>...</td>
+        </tr>
+        </tbody>
+		</table>
+		</li>
+		<li><br></li>
+		</ul>
+		
+		
+	</blockquote>
+</div>
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
