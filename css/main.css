@@ -1025,9 +1025,9 @@
 	.time-period-left-yellow:before { 
 		position: absolute;
 		top: -3px;
-		left: -44px;
-		width: 16px;
-		height: 16px;
+		left: -43px;
+		width: 25px;
+		height: 25px;
 		border: 6px solid #e0a637;
 		border-radius: 15px;
 		background: #fff;
