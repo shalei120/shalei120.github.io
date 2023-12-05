@@ -1,0 +1,1249 @@
+<figure>
+<img src="src/titlepage.jpeg" alt="title" />
+<figcaption aria-hidden="true">title</figcaption>
+</figure>
+<p>DGMs 4 NLP. Deep Generative Models for Natural Language Processing. A
+Roadmap.</p>
+<p>Yao Fu, University of Edinburgh, yao.fu@ed.ac.uk</p>
+<p>**Update**: <a
+href="https://yaofu.notion.site/How-does-GPT-Obtain-its-Ability-Tracing-Emergent-Abilities-of-Language-Models-to-their-Sources-b9a57ac0fcf74f30a1ab9e3e36fa1dc1">How
+does GPT Obtain its Ability? Tracing Emergent Abilities of Language
+Models to their Sources</a></p>
+<p>**Update**: <a
+href="https://yaofu.notion.site/A-Closer-Look-at-Large-Language-Models-Emergent-Abilities-493876b55df5479d80686f68a1abd72f">A
+Closer Look at Language Model Emergent Abilities</a></p>
+<p>**Update**: <a href="#large-language-models">Large Languge
+Models</a></p>
+<p>**Update**: <a href="#long-range-dependency">Long-range
+Dependency</a>; <a
+href="https://yaofu.notion.site/Why-S4-is-Good-at-Long-Sequence-Remembering-a-Sequence-with-Online-Function-Approximation-836fc54a49aa413b84997a265132f13f">Why
+S4 is Good at Long Sequence: Remembering a Sequence with Online Function
+Approximation</a></p>
+<p>**TODO 1**: Calibration; Prompting; Long-range transformers;
+State-space Models</p>
+<p>**TODO 2**: Matrix Factorization and Word embedding; Kernels;
+Gaussian Process</p>
+<p>**TODO 3**: Relationship between inference and RL;</p>
+<table style="width:7%;">
+<colgroup>
+<col style="width: 6%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>## Introduction</td>
+</tr>
+<tr class="even">
+<td>### Prelude</td>
+</tr>
+<tr class="odd">
+<td>(written in early 2019, originated from the <a
+href="http://stat.columbia.edu/~cunningham/teaching/GR8201/">DGM seminar
+at Columbia</a>)</td>
+</tr>
+<tr class="even">
+<td>Why do we want deep generative models? Because we want to learn
+basic factors that generate language. Human language contains rich
+latent factors, the continuous ones might be emotion, intention, and
+others, the discrete/ structural factors might be POS/ NER tags or
+syntax trees. Many of them are latent as in most cases, we just observe
+the sentence. They are also generative: human should produce language
+based on the overall idea, the current emotion, the syntax, and all
+other things we can or cannot name.</td>
+</tr>
+<tr class="odd">
+<td>How to model the generative process of language in a statistically
+principled way? Can we have a flexible framework that allows us to
+incorporate explicit supervision signals when we have labels, or add
+distant supervision or logical/ statistical constraints when we do not
+have labels but have other prior knowledge, or simply infer whatever
+makes the most sense when we have no labels or a priori? Is it possible
+that we exploit the modeling power of advanced neural architectures
+while still being mathematical and probabilistic? DGMs allow us to
+achieve these goals.</td>
+</tr>
+<tr class="even">
+<td>Let us begin the journey.</td>
+</tr>
+<tr class="odd">
+<td>### chronology * 2013: VAE * 2014: GAN; Sequence to sequence;
+Attention Mechanism * 2015: Normalizing Flow; Difussion Models * 2016:
+Gumbel-softmax; Google’s Neural Machine Translation System (GNMT) *
+2017: Transformers; ELMo * 2018: BERT * 2019: Probing and Bertology;
+GPT2 * 2020: GPT3; Contrastive Learning; Compositional Generalization;
+Diffusion Models * 2021: Prompting; Score-based Generative Models; *
+2022: State-spece Models</td>
+</tr>
+<tr class="even">
+<td>## Table of Content</td>
+</tr>
+<tr class="odd">
+<td><img src="src/roadmap.01.png" alt="roadmap" /></td>
+</tr>
+<tr class="even">
+<td>- <a href="#introduction">Introduction</a> - <a
+href="#prelude">Prelude</a> - <a href="#chronology">chronology</a> - <a
+href="#table-of-content">Table of Content</a> - <a
+href="#resources">Resources</a> - <a href="#dgm-seminars">DGM
+Seminars</a> - <a href="#courses">Courses</a> - <a
+href="#books">Books</a> - <a href="#nlp-side">NLP Side</a> - <a
+href="#generation">Generation</a> - <a
+href="#decoding-and-search-general">Decoding and Search, General</a> -
+<a href="#constrained-decoding">Constrained Decoding</a> - <a
+href="#non-autoregressive-decoding">Non-autoregressive Decoding</a> - <a
+href="#decoding-from-pretrained-language-model">Decoding from Pretrained
+Language Model</a> - <a href="#structured-prediction">Structured
+Prediction</a> - <a href="#syntax">Syntax</a> - <a
+href="#semantics">Semantics</a> - <a href="#grammar-induction">Grammar
+Induction</a> - <a href="#compositionality">Compositionality</a> - <a
+href="#ml-side">ML Side</a> - <a href="#samplig-methods">Samplig
+Methods</a> - <a href="#variational-inference-vi">Variational Inference,
+VI</a> - <a href="#vaes">VAEs</a> - <a
+href="#reparameterization">Reparameterization</a> - <a
+href="#gans">GANs</a> - <a href="#flows">Flows</a> - <a
+href="#score-based-generative-models">Score-based Generative Models</a>
+- <a href="#diffusion-models">Diffusion Models</a> - <a
+href="#advanced-topics">Advanced Topics</a> - <a
+href="#neural-architectures">Neural Architectures</a> - <a
+href="#rnns">RNNs</a> - <a href="#transformers">Transformers</a> - <a
+href="#language-model-pretraining">Language Model Pretraining</a> - <a
+href="#neural-network-learnability">Neural Network Learnability</a> - <a
+href="#long-range-transformers">Long-range Transformers</a> - <a
+href="#state-spece-models">State-Spece Models</a> - <a
+href="#large-language-models">Large Language Models</a> - <a
+href="#solutions-and-frameworks-for-running-large-language-models">Solutions
+and Frameworks for Running Large Language Models</a> - <a
+href="#list-of-large-language-models">List of Large Language Models</a>
+- <a href="#emergent-abilities">Emergent Abilities</a> - <a
+href="#optimization">Optimization</a> - <a
+href="#gradient-estimation">Gradient Estimation</a> - <a
+href="#discrete-structures">Discrete Structures</a> - <a
+href="#inference">Inference</a> - <a
+href="#efficient-inference">Efficient Inference</a> - <a
+href="#posterior-regularization">Posterior Regularization</a> - <a
+href="#geometry">Geometry</a> - <a
+href="#randomization">Randomization</a> - <a
+href="#generalization-thoery">Generalization Thoery</a> - <a
+href="#representation">Representation</a> - <a
+href="#information-theory">Information Theory</a> - <a
+href="#disentanglement-and-interpretability">Disentanglement and
+Interpretability</a> - <a href="#invariance">Invariance</a> - <a
+href="#analysis-and-critics">Analysis and Critics</a></td>
+</tr>
+<tr class="odd">
+<td>Citation:</td>
+</tr>
+<tr class="even">
+<td>## Resources</td>
+</tr>
+<tr class="odd">
+<td>* <a
+href="https://github.com/FranxYao/Deep-Generative-Models-for-Natural-Language-Processing/blob/master/src/VI4NLP_Recipe.pdf">How
+to write Variational Inference and Generative Models for NLP: a
+recipe</a>. This is strongly suggested for beginners writing papers
+about VAEs for NLP.</td>
+</tr>
+<tr class="even">
+<td>* A Tutorial on Deep Latent Variable Models of Natural Language (<a
+href="https://arxiv.org/abs/1812.06834">link</a>), EMNLP 18 * Yoon Kim,
+Sam Wiseman and Alexander M. Rush, Havard</td>
+</tr>
+<tr class="odd">
+<td>* Latent Structure Models for NLP. ACL 2019 tutorial <a
+href="https://deep-spin.github.io/tutorial/">link</a> * André Martinns,
+Tsvetomila Mihaylova, Nikita Nangia, Vlad Niculae.</td>
+</tr>
+<tr class="even">
+<td>### DGM Seminars</td>
+</tr>
+<tr class="odd">
+<td>* Columbia STAT 8201 - <a
+href="http://stat.columbia.edu/~cunningham/teaching/GR8201/">Deep
+Generative Models</a>, by <a
+href="https://stat.columbia.edu/~cunningham/">John Cunningham</a></td>
+</tr>
+<tr class="even">
+<td>* Stanford CS 236 - <a
+href="https://deepgenerativemodels.github.io/">Deep Generative
+Models</a>, by Stefano Ermon</td>
+</tr>
+<tr class="odd">
+<td>* U Toronto CS 2541 - <a
+href="https://www.cs.toronto.edu/~duvenaud/courses/csc2541/index.html">Differentiable
+Inference and Generative Models</a>, CS 2547 <a
+href="https://duvenaud.github.io/learn-discrete/">Learning Discrete
+Latent Structures</a>, CSC 2547 Fall 2019: <a
+href="https://duvenaud.github.io/learning-to-search/">Learning to
+Search</a>. By David Duvenaud</td>
+</tr>
+<tr class="even">
+<td>* U Toronto STA 4273 Winter 2021 - <a
+href="https://www.cs.toronto.edu/~cmaddis/courses/sta4273_w21/">Minimizing
+Expectations</a>. By Chris Maddison</td>
+</tr>
+<tr class="odd">
+<td>* Berkeley CS294-158 - <a
+href="https://sites.google.com/view/berkeley-cs294-158-sp20/home">Deep
+Unsupervised Learning</a>. By Pieter Abbeel</td>
+</tr>
+<tr class="even">
+<td>* Columbia STCS 8101 - <a
+href="http://www.cs.columbia.edu/~blei/seminar/2020-representation/index.html">Representation
+Learning: A Probabilistic Perspective</a>. By David Blei</td>
+</tr>
+<tr class="odd">
+<td>* Stanford CS324 - <a
+href="https://stanford-cs324.github.io/winter2022/">Large Language
+Models</a>. By Percy Liang, Tatsunori Hashimoto and Christopher Re</td>
+</tr>
+<tr class="even">
+<td>* U Toronto CSC2541 - <a
+href="https://www.cs.toronto.edu/~rgrosse/courses/csc2541_2021/">Neural
+Net Training Dynamics</a>. By Roger Grosse.</td>
+</tr>
+<tr class="odd">
+<td>### Courses</td>
+</tr>
+<tr class="even">
+<td>The fundation of the DGMs is built upon probabilistic graphical
+models. So we take a look at the following resources</td>
+</tr>
+<tr class="odd">
+<td>* Blei’s Foundation of Graphical Models course, STAT 6701 at
+Columbia (<a
+href="http://www.cs.columbia.edu/~blei/fogm/2019F/index.html">link</a>)
+* Foundation of probabilistic modeling, graphical models, and
+approximate inference.</td>
+</tr>
+<tr class="even">
+<td>* Xing’s Probabilistic Graphical Models, 10-708 at CMU (<a
+href="https://sailinglab.github.io/pgm-spring-2019/">link</a>) * A
+really heavy course with extensive materials. * 5 modules in total:
+exact inference, approximate inference, DGMs, reinforcement learning,
+and non-parameterics. * All the lecture notes, vedio recordings, and
+homeworks are open-sourced.</td>
+</tr>
+<tr class="odd">
+<td>* Collins’ Natural Language Processing, COMS 4995 at Columbia (<a
+href="http://www.cs.columbia.edu/~mcollins/cs4705-spring2019/">link</a>)
+* Many inference methods for structured models are introduced. Also take
+a look at related notes from <a
+href="http://www.cs.columbia.edu/~mcollins/">Collins’ homepage</a> *
+Also checkout <a
+href="https://www.bilibili.com/video/av29608234?from=search&amp;seid=10252913399572988135">bilibili</a></td>
+</tr>
+<tr class="even">
+<td>### Books</td>
+</tr>
+<tr class="odd">
+<td>* Pattern Recognition and Machine Learning. Christopher M. Bishop.
+2006 * Probabily the most classical textbook * The <em>core part</em>,
+according to my own understanding, of this book, should be section 8 -
+13, especially section 10 since this is the section that introduces
+variational inference.</td>
+</tr>
+<tr class="even">
+<td>* Machine Learning: A Probabilistic Perspective. Kevin P. Murphy.
+2012 * Compared with the PRML Bishop book, this book may be used as a
+super-detailed handbook for various graphical models and inference
+methods.</td>
+</tr>
+<tr class="odd">
+<td>* Graphical Models, Exponential Families, and Variational Inference.
+2008 * Martin J. Wainwright and Michael I. Jordan</td>
+</tr>
+<tr class="even">
+<td>* Linguistic Structure Prediction. 2011 * Noah Smith</td>
+</tr>
+<tr class="odd">
+<td>* The Syntactic Process. 2000 * Mark Steedman</td>
+</tr>
+</tbody>
+</table>
+<h2 id="nlp-side">NLP Side</h2>
+<h3 id="generation">Generation</h3>
+<ul>
+<li>Generating Sentences from a Continuous Space, CoNLL 15
+<ul>
+<li>Samuel R. Bowman, Luke Vilnis, Oriol Vinyals, Andrew M. Dai, Rafal
+Jozefowicz, Samy Bengio</li>
+</ul></li>
+<li>Neural variational inference for text processing, ICML 16
+<ul>
+<li>Yishu Miao, Lei Yu, Phil Blunsom, Deepmind</li>
+</ul></li>
+<li>Learning Neural Templates for Text Generation. EMNLP 2018
+<ul>
+<li>Sam Wiseman, Stuart M. Shieber, Alexander Rush. Havard</li>
+</ul></li>
+<li>Residual Energy Based Models for Text Generation. ICLR 20
+<ul>
+<li>Yuntian Deng, Anton Bakhtin, Myle Ott, Arthur Szlam, Marc’ Aurelio
+Ranzato. Havard and FAIR</li>
+</ul></li>
+<li>Paraphrase Generation with Latent Bag of Words. NeurIPS 2019.
+<ul>
+<li>Yao Fu, Yansong Feng, and John P. Cunningham. Columbia</li>
+</ul></li>
+</ul>
+<h3 id="decoding-and-search-general">Decoding and Search, General</h3>
+<ul>
+<li><p>Fairseq Decoding Library. [<a
+href="https://github.com/pytorch/fairseq/blob/master/fairseq/search.py">github</a>]</p></li>
+<li><p>Controllabel Neural Text Generation [<a
+href="https://lilianweng.github.io/lil-log/2021/01/02/controllable-neural-text-generation.html">Lil’Log</a>]</p></li>
+<li><p>Best-First Beam Search. TACL 2020</p>
+<ul>
+<li>Clara Meister, Tim Vieira, Ryan Cotterell</li>
+</ul></li>
+<li><p>The Curious Case of Neural Text Degeneration. ICLR 2020</p>
+<ul>
+<li>Ari Holtzman, Jan Buys, Li Du, Maxwell Forbes, Yejin Choi</li>
+</ul></li>
+<li><p>Comparison of Diverse Decoding Methods from Conditional Language
+Models. ACL 2019</p>
+<ul>
+<li>Daphne Ippolito, Reno Kriz, Maria Kustikova, Joa ̃o Sedoc, Chris
+Callison-Burch</li>
+</ul></li>
+<li><p>Stochastic Beams and Where to Find Them: The Gumbel-Top-k Trick
+for Sampling Sequences Without Replacement. ICML 19</p>
+<ul>
+<li>Wouter Kool, Herke van Hoof, Max Welling</li>
+</ul></li>
+<li><p>Conditional Poisson Stochastic Beam Search. EMNLP 2021</p>
+<ul>
+<li>Clara Meister, Afra Amini, Tim Vieira, Ryan Cotterell</li>
+</ul></li>
+<li><p>Massive-scale Decoding for Text Generation using Lattices.
+2021</p>
+<ul>
+<li>Jiacheng Xu and Greg Durrett</li>
+</ul></li>
+</ul>
+<h3 id="constrained-decoding">Constrained Decoding</h3>
+<ul>
+<li>Lexically Constrained Decoding for Sequence Generation Using Grid
+Beam Search. ACL 2017
+<ul>
+<li>Chris Hokamp, Qun Liu</li>
+</ul></li>
+<li>Fast Lexically Constrained Decoding with Dynamic Beam Allocation for
+Neural Machine Translation. NAACL 2018
+<ul>
+<li>Matt Post, David Vilar</li>
+</ul></li>
+<li>Improved Lexically Constrained Decoding for Translation and
+Monolingual Rewriting. NAACL 2019
+<ul>
+<li>J. Edward Hu, Huda Khayrallah, Ryan Culkin, Patrick Xia, Tongfei
+Chen, Matt Post, Benjamin Van Durme</li>
+</ul></li>
+<li>Towards Decoding as Continuous Optimisation in Neural Machine
+Translation. EMNLP 2017
+<ul>
+<li>Cong Duy Vu Hoang, Gholamreza Haffari and Trevor Cohn.</li>
+</ul></li>
+<li>Gradient-guided Unsupervised Lexically Constrained Text Generation.
+EMNLP 2020
+<ul>
+<li>Lei Sha</li>
+</ul></li>
+<li>Controlled Text Generation as Continuous Optimization with Multiple
+Constraints. 2021
+<ul>
+<li>Sachin Kumar, Eric Malmi, Aliaksei Severyn, Yulia Tsvetkov</li>
+</ul></li>
+<li>NeuroLogic Decoding: (Un)supervised Neural Text Generation with
+Predicate Logic Constraints. NAACL 2021
+<ul>
+<li>Ximing Lu, Peter West, Rowan Zellers, Ronan Le Bras, Chandra
+Bhagavatula, Yejin Choi</li>
+</ul></li>
+<li>NeuroLogic A*esque Decoding: Constrained Text Generation with
+Lookahead Heuristics. 2021
+<ul>
+<li>Ximing Lu, Sean Welleck, Peter West, Liwei Jiang, Jungo Kasai,
+Daniel Khashabi, Ronan Le Bras, Lianhui Qin, Youngjae Yu, Rowan Zellers,
+Noah A. Smith, Yejin Choi</li>
+</ul></li>
+<li>COLD Decoding: Energy-based Constrained Text Generation with
+Langevin Dynamics. 2022
+<ul>
+<li>Lianhui Qin, Sean Welleck, Daniel Khashabi, Yejin Choi</li>
+</ul></li>
+</ul>
+<h3 id="non-autoregressive-decoding">Non-autoregressive Decoding</h3>
+<p>Note: I have not fully gone through this chapter, please give me
+suggestions!</p>
+<ul>
+<li>Non-Autoregressive Neural Machine Translation. ICLR 2018
+<ul>
+<li>Jiatao Gu, James Bradbury, Caiming Xiong, Victor O.K. Li, Richard
+Socher</li>
+</ul></li>
+<li>Fully Non-autoregressive Neural Machine Translation: Tricks of the
+Trade.
+<ul>
+<li>Jiatao Gu, Xiang Kong.</li>
+</ul></li>
+<li>Fast Decoding in Sequence Models Using Discrete Latent Variables.
+ICML 2021
+<ul>
+<li>Łukasz Kaiser, Aurko Roy, Ashish Vaswani, Niki Parmar, Samy Bengio,
+Jakob Uszkoreit, Noam Shazeer</li>
+</ul></li>
+<li>Cascaded Text Generation with Markov Transformers. Arxiv 20
+<ul>
+<li>Yuntian Deng and Alexander Rush</li>
+</ul></li>
+<li>Glancing Transformer for Non-Autoregressive Neural Machine
+Translation. ACL 2021
+<ul>
+<li>Lihua Qian, Hao Zhou, Yu Bao, Mingxuan Wang, Lin Qiu, Weinan Zhang,
+Yong Yu, Lei Li</li>
+<li>This one is now deployed inside Bytedance</li>
+</ul></li>
+</ul>
+<h3 id="decoding-from-pretrained-language-model">Decoding from
+Pretrained Language Model</h3>
+<p>TODO: more about it</p>
+<ul>
+<li><p>Prompt Papers, ThuNLP (<a
+href="https://github.com/thunlp/PromptPapers">link</a>)</p></li>
+<li><p>CTRL: A Conditional Transformer Language Model for Controllable
+Generation. Arxiv 2019</p>
+<ul>
+<li>Nitish Shirish Keskar, Bryan McCann, Lav R. Varshney, Caiming Xiong,
+Richard Socher</li>
+</ul></li>
+<li><p>Plug and Play Language Models: a Simple Approach to Controlled
+Text Generation</p>
+<ul>
+<li>Sumanth Dathathri, Andrea Madotto, Janice Lan, Jane Hung, Eric
+Frank, Piero Molino, Jason Yosinski, Rosanne Liu</li>
+</ul></li>
+</ul>
+<h3 id="structured-prediction">Structured Prediction</h3>
+<ul>
+<li>Torch-Struct: Deep Structured Prediction Library. <a
+href="https://github.com/harvardnlp/pytorch-struct">github</a>, <a
+href="https://arxiv.org/abs/2002.00876">paper</a>, <a
+href="http://nlp.seas.harvard.edu/pytorch-struct/">documentation</a>
+<ul>
+<li>Alexander M. Rush. Cornell University</li>
+</ul></li>
+<li>An introduction to Conditional Random Fields. 2012
+<ul>
+<li>Charles Sutton and Andrew McCallum.</li>
+</ul></li>
+<li>Inside-Outside and Forward-Backward Algorithms Are Just Backprop.
+2016.
+<ul>
+<li>Jason Eisner</li>
+</ul></li>
+<li>Learning with Fenchel-Young Losses. JMLR 2019
+<ul>
+<li>Mathieu Blondel, André F. T. Martins, Vlad Niculae</li>
+</ul></li>
+<li>Structured Attention Networks. ICLR 2017
+<ul>
+<li>Yoon Kim, Carl Denton, Luong Hoang, Alexander M. Rush</li>
+</ul></li>
+<li>Differentiable Dynamic Programming for Structured Prediction and
+Attention. ICML 2018
+<ul>
+<li>Arthur Mensch and Mathieu Blondel.</li>
+</ul></li>
+</ul>
+<h3 id="syntax">Syntax</h3>
+<ul>
+<li>Recurrent Neural Network Grammars. NAACL 16
+<ul>
+<li>Chris Dyer, Adhiguna Kuncoro, Miguel Ballesteros, and Noah
+Smith.</li>
+</ul></li>
+<li>Unsupervised Recurrent Neural Network Grammars, NAACL 19
+<ul>
+<li>Yoon Kin, Alexander Rush, Lei Yu, Adhiguna Kuncoro, Chris Dyer, and
+Gabor Melis</li>
+</ul></li>
+<li>Differentiable Perturb-and-Parse: Semi-Supervised Parsing with a
+Structured Variational Autoencoder, ICLR 19
+<ul>
+<li>Caio Corro, Ivan Titov, Edinburgh</li>
+</ul></li>
+</ul>
+<h3 id="semantics">Semantics</h3>
+<ul>
+<li>The Syntactic Process. 2020
+<ul>
+<li>Mark Steedman</li>
+</ul></li>
+<li>Linguistically-Informed Self-Attention for Semantic Role Labeling.
+EMNLP 2018 Best paper award
+<ul>
+<li>Emma Strubell, Patrick Verga, Daniel Andor, David Weiss and Andrew
+McCallum. UMass Amherst and Google AI Language</li>
+</ul></li>
+<li>Semantic Parsing with Semi-Supervised Sequential Autoencoders. 2016
+<ul>
+<li>Tomas Kocisky, Gabor Melis, Edward Grefenstette, Chris Dyer, Wang
+Ling, Phil Blunsom, Karl Moritz Hermann</li>
+</ul></li>
+</ul>
+<h3 id="grammar-induction">Grammar Induction</h3>
+<ul>
+<li>Grammar Induction and Unsupervised Learning, paper list. (<a
+href="https://github.com/FranxYao/nlp-fundamental-frontier/blob/main/nlp/grammar_induction.md">link</a>)
+<ul>
+<li>Yao Fu</li>
+</ul></li>
+</ul>
+<h3 id="compositionality">Compositionality</h3>
+<ul>
+<li><a
+href="https://github.com/FranxYao/CompositionalGeneralizationNLP">Compositional
+Generalization in NLP</a>. Paper list
+<ul>
+<li>Yao Fu</li>
+</ul></li>
+<li>Generalization without Systematicity: On the Compositional Skills of
+Sequence-to-Sequence Recurrent Networks. ICML 2019
+<ul>
+<li>Brenden Lake and Marco Baroni</li>
+</ul></li>
+<li>Improving Text-to-SQL Evaluation Methodology. ACL 2018
+<ul>
+<li>Catherine Finegan-Dollak, Jonathan K. Kummerfeld, Li Zhang, Karthik
+Ramanathan, Sesh Sadasivam, Rui Zhang, Dragomir Radev</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="ml-side">ML Side</h2>
+<h3 id="samplig-methods">Samplig Methods</h3>
+<ul>
+<li>Probabilistic inference using Markov chain Monte Carlo methods. 1993
+<ul>
+<li>Radford M Neal</li>
+</ul></li>
+<li>Elements of Sequential Monte Carlo (<a
+href="https://arxiv.org/abs/1903.04797">link</a>)
+<ul>
+<li>Christian A. Naesseth, Fredrik Lindsten, Thomas B. Schön</li>
+</ul></li>
+<li>A Conceptual Introduction to Hamiltonian Monte Carlo (<a
+href="https://arxiv.org/abs/1701.02434">link</a>)
+<ul>
+<li>Michael Betancourt</li>
+</ul></li>
+<li>Candidate Sampling (<a
+href="https://www.tensorflow.org/extras/candidate_sampling.pdf">link</a>)
+<ul>
+<li>Google Tensorflow Blog</li>
+</ul></li>
+<li>Noise-constrastive estimation: A new estimation principle for
+unnormalized statistical models. AISTATA 2010
+<ul>
+<li>Michael Gutmann, Hyvarinen. University of Helsinki</li>
+</ul></li>
+<li>A* Sampling. NIPS 2014 Best paper award
+<ul>
+<li>Chris J. Maddison, Daniel Tarlow, Tom Minka. University of Toronto
+and MSR</li>
+</ul></li>
+</ul>
+<h3 id="variational-inference-vi">Variational Inference, VI</h3>
+<ul>
+<li>Cambridge Variational Inference Reading Group (<a
+href="http://www.statslab.cam.ac.uk/~sp825/vi.html">link</a>)
+<ul>
+<li>Sam Power. University of Cambridge</li>
+</ul></li>
+<li>Variational Inference: A Review for Statisticians.
+<ul>
+<li>David M. Blei, Alp Kucukelbir, Jon D. McAuliffe.</li>
+</ul></li>
+<li>Stochastic Variational Inference
+<ul>
+<li>Matthew D. Hoffman, David M. Blei, Chong Wang, John Paisley</li>
+</ul></li>
+<li>Variational Bayesian Inference with Stochastic Search. ICML 12
+<ul>
+<li>John Paisley, David Blei, Michael Jordan. Berkeley and
+Princeton</li>
+</ul></li>
+</ul>
+<h3 id="vaes">VAEs</h3>
+<ul>
+<li>Auto-Encoding Variational Bayes, ICLR 14
+<ul>
+<li>Diederik P. Kingma, Max Welling</li>
+</ul></li>
+<li>beta-VAE: Learning Basic Visual Concepts with a Constrained
+Variational Framework. ICLR 2017
+<ul>
+<li>Irina Higgins, Loic Matthey, Arka Pal, Christopher Burgess, Xavier
+Glorot, Matthew Botvinick, Shakir Mohamed, Alexander Lerchner</li>
+</ul></li>
+<li>Importance Weighted Autoencoders. ICLR 2015
+<ul>
+<li>Yuri Burda, Roger Grosse, Ruslan Salakhutdinov</li>
+</ul></li>
+<li>Stochastic Backpropagation and Approximate Inference in Deep
+Generative Models. ICML 14
+<ul>
+<li>Danilo Jimenez Rezende, Shakir Mohamed, Daan Wierstra</li>
+<li>Reparameterization w. deep gaussian models.</li>
+</ul></li>
+<li>Semi-amortized variational autoencoders, ICML 18
+<ul>
+<li>Yoon Kim, Sam Wiseman, Andrew C. Miller, David Sontag, Alexander M.
+Rush, Havard</li>
+</ul></li>
+<li>Adversarially Regularized Autoencoders, ICML 18
+<ul>
+<li>Jake (Junbo) Zhao, Yoon Kim, Kelly Zhang, Alexander M. Rush, Yann
+LeCun.</li>
+</ul></li>
+</ul>
+<h3 id="reparameterization">Reparameterization</h3>
+<p>More on reparameterization: to reparameterize gaussian mixture,
+permutation matrix, and rejection samplers(Gamma and Dirichlet).</p>
+<ul>
+<li>Stochastic Backpropagation through Mixture Density Distributions,
+Arxiv 16
+<ul>
+<li>Alex Graves</li>
+</ul></li>
+<li>Reparameterization Gradients through Acceptance-Rejection Sampling
+Algorithms. AISTATS 2017
+<ul>
+<li>Christian A. Naesseth, Francisco J. R. Ruiz, Scott W. Linderman,
+David M. Blei</li>
+</ul></li>
+<li>Implicit Reparameterization Gradients. NeurIPS 2018.
+<ul>
+<li>Michael Figurnov, Shakir Mohamed, and Andriy Mnih</li>
+</ul></li>
+<li>Categorical Reparameterization with Gumbel-Softmax. ICLR 2017
+<ul>
+<li>Eric Jang, Shixiang Gu, Ben Poole</li>
+</ul></li>
+<li>The Concrete Distribution: A Continuous Relaxation of Discrete
+Random Variables. ICLR 2017
+<ul>
+<li>Chris J. Maddison, Andriy Mnih, and Yee Whye Teh</li>
+</ul></li>
+<li>Invertible Gaussian Reparameterization: Revisiting the
+Gumbel-Softmax. 2020
+<ul>
+<li>Andres Potapczynski, Gabriel Loaiza-Ganem, John P. Cunningham</li>
+</ul></li>
+<li>Reparameterizable Subset Sampling via Continuous Relaxations. IJCAI
+2019
+<ul>
+<li>Sang Michael Xie and Stefano Ermon</li>
+</ul></li>
+</ul>
+<h3 id="gans">GANs</h3>
+<ul>
+<li>Generative Adversarial Networks, NIPS 14
+<ul>
+<li>Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David
+Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio</li>
+</ul></li>
+<li>Towards principled methods for training generative adversarial
+networks, ICLR 2017
+<ul>
+<li>Martin Arjovsky and Leon Bottou</li>
+</ul></li>
+<li>Wasserstein GAN
+<ul>
+<li>Martin Arjovsky, Soumith Chintala, Léon Bottou</li>
+</ul></li>
+<li>InfoGAN: Interpretable Representation Learning by Information
+Maximizing Generative Adversarial Nets. NIPS 2016
+<ul>
+<li>Xi Chen, Yan Duan, Rein Houthooft, John Schulman, Ilya Sutskever,
+Pieter Abbeel. UC Berkeley. OpenAI</li>
+</ul></li>
+<li>Adversarially Learned Inference. ICLR 2017
+<ul>
+<li>Vincent Dumoulin, Ishmael Belghazi, Ben Poole, Olivier Mastropietro,
+Alex Lamb, Martin Arjovsky, Aaron Courville</li>
+</ul></li>
+</ul>
+<h3 id="flows">Flows</h3>
+<ul>
+<li><p>Flow Based Deep Generative Models, from <a
+href="https://lilianweng.github.io/lil-log/2018/10/13/flow-based-deep-generative-models.html">Lil’s
+log</a></p></li>
+<li><p>Variational Inference with Normalizing Flows, ICML 15</p>
+<ul>
+<li>Danilo Jimenez Rezende, Shakir Mohamed</li>
+</ul></li>
+<li><p>Learning About Language with Normalizing Flows</p>
+<ul>
+<li>Graham Neubig, CMU, <a
+href="http://www.phontron.com/slides/neubig19generative.pdf">slides</a></li>
+</ul></li>
+<li><p>Improved Variational Inference with Inverse Autoregressive
+Flow</p>
+<ul>
+<li>Diederik P Kingma, Tim Salimans, Rafal Jozefowicz, Xi Chen, Ilya
+Sutskever, Max Welling</li>
+</ul></li>
+<li><p>Density estimation using Real NVP. ICLR 17</p>
+<ul>
+<li>Laurent Dinh, Jascha Sohl-Dickstein, Samy Bengio</li>
+</ul></li>
+<li><p>Unsupervised Learning of Syntactic Structure with Invertible
+Neural Projections. EMNLP 2018</p>
+<ul>
+<li>Junxian He, Graham Neubig, Taylor Berg-Kirkpatrick</li>
+</ul></li>
+<li><p>Latent Normalizing Flows for Discrete Sequences. ICML 2019.</p>
+<ul>
+<li>Zachary M. Ziegler and Alexander M. Rush</li>
+</ul></li>
+<li><p>Discrete Flows: Invertible Generative Models of Discrete Data.
+2019</p>
+<ul>
+<li>Dustin Tran, Keyon Vafa, Kumar Krishna Agrawal, Laurent Dinh, Ben
+Poole</li>
+</ul></li>
+<li><p>FlowSeq: Non-Autoregressive Conditional Sequence Generation with
+Generative Flow. EMNLP 2019</p>
+<ul>
+<li>Xuezhe Ma, Chunting Zhou, Xian Li, Graham Neubig, Eduard Hovy</li>
+</ul></li>
+<li><p>Variational Neural Machine Translation with Normalizing Flows.
+ACL 2020</p>
+<ul>
+<li>Hendra Setiawan, Matthias Sperber, Udhay Nallasamy, Matthias Paulik.
+Apple</li>
+</ul></li>
+<li><p>On the Sentence Embeddings from Pre-trained Language Models.
+EMNLP 2020</p>
+<ul>
+<li>Bohan Li, Hao Zhou, Junxian He, Mingxuan Wang, Yiming Yang, Lei
+Li</li>
+</ul></li>
+</ul>
+<h3 id="score-based-generative-models">Score-based Generative
+Models</h3>
+<blockquote>
+<p>FY: Need to see how score-based generative models and diffusion
+models can be used for discrete sequences</p>
+</blockquote>
+<ul>
+<li><a href="https://yang-song.github.io/blog/2021/score/">Generative
+Modeling by Estimating Gradients of the Data Distribution</a>. Blog 2021
+<ul>
+<li>Yang Song</li>
+</ul></li>
+<li><a href="https://scorebasedgenerativemodeling.github.io/">Score
+Based Generative Modeling Papers</a>
+<ul>
+<li>researchers at the University of Oxford</li>
+</ul></li>
+<li><a href="https://arxiv.org/abs/1907.05600">Generative Modeling by
+Estimating Gradients of the Data Distribution</a>. NeurIPS 2019
+<ul>
+<li>Yang Song, Stefano Ermon</li>
+</ul></li>
+</ul>
+<h3 id="diffusion-models">Diffusion Models</h3>
+<ul>
+<li><a
+href="https://lilianweng.github.io/lil-log/2021/07/11/diffusion-models.html">What
+are Diffusion Models?</a> 2021
+<ul>
+<li>Lilian Weng</li>
+</ul></li>
+<li><a
+href="https://github.com/heejkoo/Awesome-Diffusion-Models">Awesome-Diffusion-Models</a>
+<ul>
+<li>Heejoon Koo</li>
+</ul></li>
+<li><a href="https://arxiv.org/abs/1503.03585">Deep Unsupervised
+Learning using Nonequilibrium Thermodynamics</a>. 2015
+<ul>
+<li>Jascha Sohl-Dickstein, Eric A. Weiss, Niru Maheswaranathan, Surya
+Ganguli</li>
+</ul></li>
+<li><a href="https://arxiv.org/abs/2006.11239">Denoising Diffusion
+Probabilistic Models</a>. NeurIPS 2020
+<ul>
+<li>Jonathan Ho, Ajay Jain, Pieter Abbeel</li>
+</ul></li>
+<li><a href="https://arxiv.org/abs/2102.05379">Argmax Flows and
+Multinomial Diffusion: Learning Categorical Distributions</a>. NeurIPS
+2021
+<ul>
+<li>Emiel Hoogeboom, Didrik Nielsen, Priyank Jaini, Patrick Forré, Max
+Welling</li>
+</ul></li>
+<li><a href="https://arxiv.org/abs/2107.03006">Structured Denoising
+Diffusion Models in Discrete State-Spaces</a>. NeurIPS 2021
+<ul>
+<li>Jacob Austin, Daniel D. Johnson, Jonathan Ho, Daniel Tarlow, Rianne
+van den Berg</li>
+</ul></li>
+<li><a href="https://arxiv.org/abs/2110.02037">Autoregressive Diffusion
+Models</a>. ICLR 2022
+<ul>
+<li>Emiel Hoogeboom, Alexey A. Gritsenko, Jasmijn Bastings, Ben Poole,
+Rianne van den Berg, Tim Salimans</li>
+</ul></li>
+<li><a href="https://arxiv.org/abs/2205.14217">Diffusion-LM Improves
+Controllable Text Generation</a>. 2022
+<ul>
+<li>Xiang Lisa Li, John Thickstun, Ishaan Gulrajani, Percy Liang,
+Tatsunori B. Hashimoto</li>
+</ul></li>
+<li><a href="">Photorealistic Text-to-Image Diffusion Models with Deep
+Language Understanding</a>. 2022
+<ul>
+<li>Chitwan Saharia, William Chan, Saurabh Saxena, Lala Li, Jay Whang,
+Emily Denton, Seyed Kamyar Seyed Ghasemipour, Burcu Karagol Ayan, S.
+Sara Mahdavi, Rapha Gontijo Lopes, Tim Salimans, Jonathan Ho, David J
+Fleet, Mohammad Norouzi</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="advanced-topics">Advanced Topics</h2>
+<h3 id="neural-architectures">Neural Architectures</h3>
+<h4 id="rnns">RNNs</h4>
+<ul>
+<li>Ordered Neurons: Integrating Tree Structured into Recurrent Neural
+Networks
+<ul>
+<li>Yikang Shen, Shawn Tan, Alessandro Sordoni, Aaron Courville. Mila,
+MSR</li>
+</ul></li>
+<li>RNNs can generate bounded hierarchical languages with optimal memory
+<ul>
+<li>John Hewitt, Michael Hahn, Surya Ganguli, Percy Liang, Christopher
+D. Manning</li>
+</ul></li>
+</ul>
+<h4 id="transformers">Transformers</h4>
+<ul>
+<li>Analyzing Multi-Head Self-Attention: Specialized Heads Do the Heavy
+Lifting, the Rest Can Be Pruned. ACL 2019
+<ul>
+<li>Elena Voita, David Talbot, Fedor Moiseev, Rico Sennrich, Ivan
+Titov</li>
+</ul></li>
+<li>Theoretical Limitations of Self-Attention in Neural Sequence Models.
+TACL 2019
+<ul>
+<li>Michael Hahn</li>
+</ul></li>
+<li>Rethinking Attention with Performers. 2020
+<ul>
+<li>Krzysztof Choromanski, Valerii Likhosherstov, David Dohan, Xingyou
+Song, Andreea Gane, Tamas Sarlos, Peter Hawkins, Jared Davis, Afroz
+Mohiuddin, Lukasz Kaiser, David Belanger, Lucy Colwell, Adrian
+Weller</li>
+</ul></li>
+</ul>
+<h4 id="language-model-pretraining">Language Model Pretraining</h4>
+<ul>
+<li>THUNLP: Pre-trained Languge Model paper list (<a
+href="https://github.com/thunlp/PLMpapers">link</a>)
+<ul>
+<li>Xiaozhi Wang and Zhengyan Zhang, Tsinghua University</li>
+</ul></li>
+<li>Tomohide Shibata’s <a
+href="https://github.com/tomohideshibata/BERT-related-papers">BERT-related
+Papers</a></li>
+</ul>
+<h4 id="neural-network-learnability">Neural Network Learnability</h4>
+<ul>
+<li><a
+href="https://github.com/FranxYao/Semantics-and-Compositional-Generalization-in-Natural-Language-Processing#neural-network-learnability">Neural
+Network Learnability</a>. Yao Fu</li>
+</ul>
+<h4 id="long-range-transformers">Long-range Transformers</h4>
+<ul>
+<li>Long Range Arena: A Benchmark for Efficient Transformers
+<ul>
+<li>Yi Tay, Mostafa Dehghani, Samira Abnar, Yikang Shen, Dara Bahri,
+Philip Pham, Jinfeng Rao, Liu Yang, Sebastian Ruder, Donald Metzler</li>
+</ul></li>
+</ul>
+<h4 id="state-spece-models">State-Spece Models</h4>
+<ul>
+<li>HiPPO: Recurrent Memory with Optimal Polynomial Projections. NeurIPS
+2020
+<ul>
+<li>Albert Gu, Tri Dao, Stefano Ermon, Atri Rudra, Christopher Ré</li>
+</ul></li>
+<li>Combining Recurrent, Convolutional, and Continuous-time Models with
+the Linear State Space Layer. NeurIPS 2021
+<ul>
+<li>Albert Gu, Isys Johnson, Karan Goel, Khaled Saab, Tri Dao, Atri
+Rudra, Christopher Ré</li>
+</ul></li>
+<li>Efficiently Modeling Long Sequences with Structured State Spaces.
+ICLR 2022
+<ul>
+<li>Albert Gu, Karan Goel, and Christopher Ré</li>
+</ul></li>
+<li><a
+href="https://yaofu.notion.site/Why-S4-is-Good-at-Long-Sequence-Remembering-a-Sequence-with-Online-Function-Approximation-836fc54a49aa413b84997a265132f13f">Why
+S4 is Good at Long Sequence: Remembering a Sequence with Online Function
+Approximation.</a> 2022
+<ul>
+<li>Yao Fu</li>
+</ul></li>
+</ul>
+<h3 id="large-language-models">Large Language Models</h3>
+<h4
+id="solutions-and-frameworks-for-running-large-language-models">Solutions
+and Frameworks for Running Large Language Models</h4>
+<ul>
+<li>Serving OPT-175B using Alpa (350 GB GPU memory in total) <a
+href="https://alpa.ai/tutorials/opt_serving.html">link</a></li>
+</ul>
+<h4 id="list-of-large-language-models">List of Large Language
+Models</h4>
+<ul>
+<li><p>GPT3 (175B). Language Models are Few-Shot Learners. May
+2020</p></li>
+<li><p>Megatron-Turing NLG (530B). Using DeepSpeed and Megatron to Train
+Megatron-Turing NLG 530B, A Large-Scale Generative Language Model. Jan
+2022</p></li>
+<li><p>LaMDA (137B). LaMDA: Language Models for Dialog Applications. Jan
+2022</p></li>
+<li><p>Gopher (280B). Scaling Language Models: Methods, Analysis &amp;
+Insights from Training Gopher. Dec 2021</p></li>
+<li><p>Chinchilla (70B). Training Compute-Optimal Large Language Models.
+Mar 2022</p></li>
+<li><p>PaLM (540B). PaLM: Scaling Language Modeling with Pathways. Apr
+2022</p></li>
+<li><p>OPT (175B). OPT: Open Pre-trained Transformer Language Models.
+May 2022</p></li>
+<li><p>BLOOM (176B): BigScience Large Open-science Open-access
+Multilingual Language Model. May 2022</p></li>
+<li><p>BlenderBot 3 (175B): a deployed conversational agent that
+continually learns to responsibly engage. Aug 2022</p></li>
+</ul>
+<h4 id="emergent-abilities">Emergent Abilities</h4>
+<ul>
+<li>Scaling Laws for Neural Language Models. 2020
+<ul>
+<li>Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin
+Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, Dario
+Amodei</li>
+</ul></li>
+<li>Emergent Abilities of Large Language Models. 2022
+<ul>
+<li>Jason Wei, Yi Tay, Rishi Bommasani, Colin Raffel, Barret Zoph,
+Sebastian Borgeaud, Dani Yogatama, Maarten Bosma, Denny Zhou, Donald
+Metzler, Ed H. Chi, Tatsunori Hashimoto, Oriol Vinyals, Percy Liang,
+Jeff Dean, William Fedus.</li>
+</ul></li>
+</ul>
+<h3 id="optimization">Optimization</h3>
+<h4 id="gradient-estimation">Gradient Estimation</h4>
+<ul>
+<li><p><a
+href="https://www.cs.toronto.edu/~cmaddis/courses/sta4273_w21/">Minimizing
+Expectations</a>. Chris Maddison</p></li>
+<li><p>Monte Carlo Gradient Estimation in Machine Learning</p>
+<ul>
+<li>Schakir Mohamed, Mihaela Rosca, Michael Figurnov, Andriy Mnih.
+DeepMind</li>
+</ul></li>
+<li><p>Variational Inference for Monte Carlo Objectives. ICML 16</p>
+<ul>
+<li>Andriy Mnih, Danilo J. Rezende. DeepMind</li>
+</ul></li>
+<li><p>REBAR: Low-variance, unbiased gradient estimates for discrete
+latent variable models. NIPS 17</p>
+<ul>
+<li>George Tucker, Andriy Mnih, Chris J. Maddison, Dieterich Lawson,
+Jascha Sohl-Dickstein. Google Brain, DeepMind, Oxford</li>
+</ul></li>
+<li><p>Backpropagation Through the Void: Optimizing Control Variates for
+Black-box Gradient Estimation. ICLR 18</p>
+<ul>
+<li>Will Grathwohl, Dami Choi, Yuhuai Wu, Geoffrey Roeder, David
+Duvenaud. U Toronto and Vector Institute</li>
+</ul></li>
+<li><p>Backpropagating through Structured Argmax using a SPIGOT. ACL
+2018 Best Paper Honorable Mention.</p>
+<ul>
+<li>Hao Peng, Sam Thomson, and Noah A. Smith</li>
+</ul></li>
+<li><p>Understanding the Mechanics of SPIGOT: Surrogate Gradients for
+Latent Structure Learning. EMNLP 2020</p>
+<ul>
+<li>Tsvetomila Mihaylova, Vlad Niculae, and Andre ́ F. T. Martins</li>
+</ul></li>
+</ul>
+<h4 id="discrete-structures">Discrete Structures</h4>
+<ul>
+<li><p>Learning with Differentiable Perturbed Optimizers. NeurIPS
+2020</p>
+<ul>
+<li>Quentin Berthet, Mathieu Blondel, Olivier Teboul, Marco Cuturi,
+Jean-Philippe Vert, Francis Bach</li>
+</ul></li>
+<li><p>Gradient Estimation with Stochastic Softmax Tricks. NeurIPS
+2020</p>
+<ul>
+<li>Max B. Paulus, Dami Choi, Daniel Tarlow, Andreas Krause, Chris J.
+Maddison.</li>
+</ul></li>
+<li><p>Differentiable Dynamic Programming for Structured Prediction and
+Attention. ICML 18</p>
+<ul>
+<li>Arthur Mensch, Mathieu Blondel. Inria Parietal and NTT Communication
+Science Laboratories</li>
+</ul></li>
+<li><p>Stochastic Optimization of Sorting Networks via Continuous
+Relaxations</p>
+<ul>
+<li>Aditya Grover, Eric Wang, Aaron Zweig, Stefano Ermon</li>
+</ul></li>
+<li><p>Differentiable Ranks and Sorting using Optimal Transport</p>
+<ul>
+<li>Guy Lorberbom, Andreea Gane, Tommi Jaakkola, and Tamir Hazan</li>
+</ul></li>
+<li><p>Reparameterizing the Birkhoff Polytope for Variational
+Permutation Inference. AISTATS 2018</p>
+<ul>
+<li>Scott W. Linderman, Gonzalo E. Mena, Hal Cooper, Liam Paninski, John
+P. Cunningham.</li>
+</ul></li>
+<li><p>A Regularized Framework for Sparse and Structured Neural
+Attention. NeurIPS 2017</p></li>
+<li><p>SparseMAP: Differentiable Sparse Structured Inference. ICML
+2018</p></li>
+</ul>
+<h3 id="inference">Inference</h3>
+<ul>
+<li>Topics in Advanced Inference. Yingzhen Li. (<a
+href="http://yingzhenli.net/home/pdf/topics_approx_infer.pdf">Link</a>)</li>
+</ul>
+<h4 id="efficient-inference">Efficient Inference</h4>
+<ul>
+<li>Nested Named Entity Recognition with Partially-Observed TreeCRFs.
+AAAI 2021
+<ul>
+<li>Yao Fu, Chuanqi Tan, Mosha Chen, Songfang Huang, Fei Huang</li>
+</ul></li>
+<li>Rao-Blackwellized Stochastic Gradients for Discrete Distributions.
+ICML 2019.
+<ul>
+<li>Runjing Liu, Jeffrey Regier, Nilesh Tripuraneni, Michael I. Jordan,
+Jon McAuliffe</li>
+</ul></li>
+<li>Efficient Marginalization of Discrete and Structured Latent
+Variables via Sparsity. NeurIPS 2020
+<ul>
+<li>Gonçalo M. Correia, Vlad Niculae, Wilker Aziz, André F. T.
+Martins</li>
+</ul></li>
+</ul>
+<h4 id="posterior-regularization">Posterior Regularization</h4>
+<ul>
+<li>Posterior Regularization for Structured Latent Variable Models. JMLR
+2010
+<ul>
+<li>Kuzman Ganchev, João Graça, Jennifer Gillenwater, Ben Taskar.</li>
+</ul></li>
+<li>Posterior Control of Blackbox Generation. 2019
+<ul>
+<li>Xiang Lisa Li and Alexander M. Rush.</li>
+</ul></li>
+<li>Dependency Grammar Induction with a Neural Variational
+Transition-based Parser. AAAI 2019
+<ul>
+<li>Bowen Li, Jianpeng Cheng, Yang Liu, Frank Keller</li>
+</ul></li>
+</ul>
+<h3 id="geometry">Geometry</h3>
+<ul>
+<li>(In Chinese) 微分几何与拓扑学简明教程
+<ul>
+<li>米先珂，福明珂</li>
+</ul></li>
+<li>Only Bayes Should Learn a Manifold (On the Estimation of
+Differential Geometric Structure from Data). Arxiv 2018
+<ul>
+<li>Soren Hauberg</li>
+</ul></li>
+<li>The Riemannian Geometry of Deep Generative Models. CVPRW 2018
+<ul>
+<li>Hang Shao, Abhishek Kumar, P. Thomas Fletcher</li>
+</ul></li>
+<li>The Geometry of Deep Generative Image Models and Its Applications.
+ICLR 2021
+<ul>
+<li>Binxu Wang and Carlos R. Ponce</li>
+</ul></li>
+<li>Metrics for Deep Generative Models. AISTATS 2017
+<ul>
+<li>Nutan Chen, Alexej Klushyn, Richard Kurle, Xueyan Jiang, Justin
+Bayer, Patrick van der Smagt</li>
+</ul></li>
+<li>First-Order Algorithms for Min-Max Optimization in Geodesic Metric
+Spaces. 2022
+<ul>
+<li>Michael I. Jordan, Tianyi Lin, Emmanouil V.
+Vlatakis-Gkaragkounis</li>
+</ul></li>
+</ul>
+<h3 id="randomization">Randomization</h3>
+<ul>
+<li>Random Features for Large-Scale Kernel Machines. NeurIPS 2007
+<ul>
+<li>Ali Rahimi, Benjamin Recht</li>
+</ul></li>
+<li>Finding structure with randomness: Probabilistic algorithms for
+constructing approximate matrix decompositions. SIAM 2011
+<ul>
+<li>Nathan Halko, Per-Gunnar Martinsson, Joel A. Tropp</li>
+</ul></li>
+<li>Efficient optimization of loops and limits with randomized
+telescoping sums. ICML 2019
+<ul>
+<li>Alex Beatson, Ryan P Adams</li>
+</ul></li>
+<li>Telescoping Density-Ratio Estimation. NeurIPS 2020
+<ul>
+<li>Benjamin Rhodes, Kai Xu, Michael U. Gutmann</li>
+</ul></li>
+<li>Bias-Free Scalable Gaussian Processes via Randomized Truncations.
+ICML 2021
+<ul>
+<li>Andres Potapczynski, Luhuan Wu, Dan Biderman, Geoff Pleiss, John P
+Cunningham</li>
+</ul></li>
+<li>Randomized Automatic Differentiation. ICLR 2021
+<ul>
+<li>Deniz Oktay, Nick McGreivy, Joshua Aduol, Alex Beatson, Ryan P.
+Adams</li>
+</ul></li>
+<li>Scaling Structured Inference with Randomization. 2021
+<ul>
+<li>Yao Fu, John Cunningham, Mirella Lapata</li>
+</ul></li>
+</ul>
+<h3 id="generalization-thoery">Generalization Thoery</h3>
+<ul>
+<li>CS229T. Statistical Learning Theory. 2016
+<ul>
+<li>Percy Liang</li>
+</ul></li>
+</ul>
+<h3 id="representation">Representation</h3>
+<h4 id="information-theory">Information Theory</h4>
+<ul>
+<li><p>Elements of Information Theory. Cover and Thomas. 1991</p></li>
+<li><p>On Variational Bounds of Mutual Information. ICML 2019</p>
+<ul>
+<li>Ben Poole, Sherjil Ozair, Aaron van den Oord, Alexander A. Alemi,
+George Tucker</li>
+<li>A comprehensive discussion of all these MI variational bounds</li>
+</ul></li>
+<li><p>Learning Deep Representations By Mutual Information Estimation
+And Maximization. ICLR 2019</p>
+<ul>
+<li>R Devon Hjelm, Alex Fedorov, Samuel Lavoie-Marchildon, Karan Grewal,
+Phil Bachman, Adam Trischler, and Yoshua Bengio</li>
+<li>A detailed comparison between different MI estimators, section
+3.2.</li>
+</ul></li>
+<li><p>MINE: Mutual Information Neural Estimation</p>
+<ul>
+<li>R Devon Hjelm, Alex Fedorov, Samuel Lavoie-Marchildon, Karan Grewal,
+Phil Bachman, Adam Trischler, Yoshua Bengio</li>
+</ul></li>
+<li><p>Deep Variational Information Bottleneck. ICLR 2017</p>
+<ul>
+<li>Alexander A. Alemi, Ian Fischer, Joshua V. Dillon, Kevin Murphy.
+Google Research</li>
+</ul></li>
+</ul>
+<h4 id="disentanglement-and-interpretability">Disentanglement and
+Interpretability</h4>
+<ul>
+<li>Identifying Bayesian Mixture Models
+<ul>
+<li>Michael Betancourt</li>
+</ul></li>
+<li>Disentangling Disentanglement in Variational Autoencoders. ICML 2019
+<ul>
+<li>Emile Mathieu, Tom Rainforth, N. Siddharth, Yee Whye Teh</li>
+</ul></li>
+<li>Challenging Common Assumptions in the Unsupervised Learning of
+Disentangled Representations. ICML 2019
+<ul>
+<li>Francesco Locatello, Stefan Bauer, Mario Lucic, Gunnar Rätsch,
+Sylvain Gelly, Bernhard Schölkopf, Olivier Bachem</li>
+</ul></li>
+</ul>
+<h4 id="invariance">Invariance</h4>
+<ul>
+<li>Emergence of Invariance and Disentanglement in Deep Representations
+<ul>
+<li>Alessandro Achillo and Stefano Soatto. UCLA. JMLR 2018</li>
+</ul></li>
+<li>Invariant Risk Minimization
+<ul>
+<li>Martin Arjovsky, Leon Bottou, Ishaan Gulrajani, David Lopez-Paz.
+2019.</li>
+</ul></li>
+</ul>
+<h3 id="analysis-and-critics">Analysis and Critics</h3>
+<ul>
+<li>Fixing a Broken ELBO. ICML 2018.
+<ul>
+<li>Alexander A. Alemi, Ben Poole, Ian Fischer, Joshua V. Dillon, Rif A.
+Saurous, Kevin Murphy</li>
+</ul></li>
+<li>Tighter Variational Bounds are Not Necessarily Better. ICML 2018
+<ul>
+<li>Tom Rainforth, Adam R. Kosiorek, Tuan Anh Le, Chris J. Maddison,
+Maximilian Igl, Frank Wood, Yee Whye Teh</li>
+</ul></li>
+<li>The continuous Bernoulli: fixing a pervasive error in variational
+autoencoders. NeurIPS 2019
+<ul>
+<li>Gabriel Loaiza-Ganem and John P. Cunningham. Columbia.</li>
+</ul></li>
+<li>Do Deep Generative Models Know What They Don’t Know? ICLR 2019
+<ul>
+<li>Eric Nalisnick, Akihiro Matsukawa, Yee Whye Teh, Dilan Gorur, Balaji
+Lakshminarayanan</li>
+</ul></li>
+<li>Effective Estimation of Deep Generative Language Models. ACL 2020
+<ul>
+<li>Tom Pelsmaeker and Wilker Aziz. University of Edinburgh and
+University of Amsterdam</li>
+</ul></li>
+<li>How Good is the Bayes Posterior in Deep Neural Networks Really? ICML
+2020
+<ul>
+<li>Florian Wenzel, Kevin Roth, Bastiaan S. Veeling, Jakub Świątkowski,
+Linh Tran, Stephan Mandt, Jasper Snoek, Tim Salimans, Rodolphe Jenatton,
+Sebastian Nowozin</li>
+</ul></li>
+<li>A statistical theory of cold posteriors in deep neural networks.
+ICLR 2021
+<ul>
+<li>Laurence Aitchison</li>
+</ul></li>
+<li>Limitations of Autoregressive Models and Their Alternatives. NAACL
+2021
+<ul>
+<li>Chu-Cheng Lin, Aaron Jaech, Xin Li, Matthew R. Gormley, Jason
+Eisner</li>
+</ul></li>
+</ul>
