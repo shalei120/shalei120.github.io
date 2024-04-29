@@ -58,9 +58,24 @@
 		</ul>
 	
 		<h2><a name="coursework"><font color="#CC6666">大作业</font></a></h2>
-		<ul style="list-style: none;">
-			<li><b>TBD</b>
-			
+		<h3><b>医疗NLP</b></h3>
+		<ul type="circle">
+			<li>任务描述：提供医学文本数据集，包括病历、临床指南等。提供若干疾病描述，症状描述等。</li>
+
+			<li>需要实现：
+			<ul type="square">
+				<li>(1) 抽取医学文本中的疾病名称、症状、检查结果等关键信息。
+						抽取数据集：<a href="./Natural_Language_Processing_files/task/CMeIE-V2.zip">CMEIE数据集</a>
+						报告抽取模型的分数。
+						数据集以及任务介绍可以查看：
+						<a href="https://tianchi.aliyun.com/dataset/95414?spm=a2c22.28136470.0.0.446e4a0aUwmt8R&from=search-list">本页面</a></li>
+
+				<li>(2) 根据给定的患者描述(<a href="./Natural_Language_Processing_files/task/question.csv">question.csv</a>)，从医疗对话数据集（<a href="./Natural_Language_Processing_files/task/dialogue.json">dialogue.json</a>）中找到相似的问题以及回答。</li>
+
+				<li>(3) 通过(1)中抽取得到的医学知识，与给定的患者描述(question.csv)进行匹配，给出对应的治疗方案，以此对(2)中找到的回答进行验证，并利用所有匹配到的信息，使用大模型生成一份专家建议，包括疾病诊断、治疗方案、后续检查等等。</li>
+			</ul>
+			</li>
+			<li>验收方式：code、报告和ppt，第15周之前交给助教王昊（wanghao_ai@buaa.edu.cn），第15周在课堂上做汇报展示。</li>
 		</ul>
 			
 			
@@ -167,14 +182,21 @@
         <tr align="center">
           <td valign="middle">8</td>
           <td valign="middle">Apr 15 </td>
-          <td valign="middle"><b><a href="./Natural_Language_Processing_files/slides/9_alignment">文本自动对齐</a></b></td>
+          <td valign="middle"><b><a href="./Natural_Language_Processing_files/slides/9_alignment.pdf">文本自动对齐</a></b></td>
           <td>...</td>
           <td>...</td>
         </tr>
         <tr align="center">
           <td valign="middle">9</td>
           <td valign="middle">Apr 22 </td>
-          <td valign="middle"><b><a href="./Natural_Language_Processing_files/slides/10_seq2seq">神经机器翻译</a></b></td>
+          <td valign="middle"><b><a href="./Natural_Language_Processing_files/slides/10_seq2seq.pdf">神经机器翻译</a></b></td>
+          <td>...</td>
+          <td>...</td>
+        </tr>
+        <tr align="center">
+          <td valign="middle">10</td>
+          <td valign="middle">Apr 29 </td>
+          <td valign="middle"><b><a href="./Natural_Language_Processing_files/slides/11_transformers.pdf">Transformer & PLM & LLM</a></b></td>
           <td>...</td>
           <td>...</td>
         </tr>
