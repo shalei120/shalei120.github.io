@@ -57,8 +57,8 @@
 			</li-->
 		</ul>
 	
-		<h2><a name="coursework"><font color="#CC6666">大作业</font></a></h2>
-		<h3><b>医疗NLP</b></h3>
+		<h2><a name="coursework"><font color="#CC6666">大作业（以下二选一）</font></a></h2>
+		<h3><b>题目1：医疗NLP</b></h3>
 		<ul type="circle">
 			<li>任务描述：提供医学文本数据集，包括病历、临床指南等。提供若干疾病描述，症状描述等。</li>
 
@@ -77,8 +77,26 @@
 			</li>
 			<li>验收方式：code、报告和ppt，第15周之前交给助教王昊（wanghao_ai@buaa.edu.cn），第15周在课堂上做汇报展示。</li>
 		</ul>
+		<h3><b>题目2：对大语言模型安全检测器的攻击模拟（选择此题可在最终成绩的基础上加5~10分）</b></h3>
+			<ul type="circle">
+			<li>任务描述：提供一个大模型安全检测器（SheildLM）的调用接口。同学可以选择一个大模型（LLM）作为回复生成器。攻击过程如下：</li>
+			<ul type="circle">
+				<li>构造prompt 输入 LLM 获得 response</li>
+				<li>将prompt 和 response 一起输入 SheildLM ， 获得 安全/不安全 的判断</li>
+			</ul>
 			
-			
+			<li>任务详细描述见此<a href="./task/safety.pdf">文件</a></li>
+			<li>需要实现：
+			<ul type="square">
+				<li>(1) 构造50条prompt，使得最后SheildLM的输出是错误的（即攻击成功）</li>
+
+				<li>(2) 这50条prompt可以自己手写，也可以套用一些现有的模型来生成，或者自己写算法生成</li>
+
+				<li>(3) LLM的选择：可以选择开源的LLaMa，Vicuna，ChatGLM等，也可以选择闭源大模型ChatGPT，Claude，Gemini等（闭源的可能比较难攻破）</li>
+			</ul>
+			</li>
+			<li>验收方式：任务详细描述文件中提及的res.json。报告（主要写prompt生成方法）和ppt，第15周之前交给助教王昊（wanghao_ai@buaa.edu.cn），第15周在课堂上做汇报展示。</li>
+		</ul>
 		
 		<h2><a name="syllabus"><font color="#CC6666">参考书</font></a></h2>	
 			<ul type="square">
