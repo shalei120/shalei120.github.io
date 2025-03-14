@@ -140,7 +140,7 @@
 		margin: 0 auto;
 		margin-top: 150px;
 		margin-bottom: 50px;
-		width: 860px;
+		width: 1260px;
 		border-radius: 20px;
 		background: #f8f8f8 url("background_content.jpg")/*tpa=http://www.cs.cmu.edu/~diyiy/images/background_content.jpg*/;
     	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -151,7 +151,7 @@
 
 	.shadow {
 		position: relative;
-		width: 860px;
+		width: 1260px;
 		margin: 0 auto;
 	}
 
@@ -191,15 +191,15 @@
 
 	.right-column {
 		float: right;
-		margin: 20px 20px 0 0;
+		margin: 0px 20px 0 0;
 		padding: 15px;
-		width: 490px;
+		width: 1090px;
 	}
 
 	.full-width {
 		margin: 20px 20px 0 20px;
 		padding: 10px 20px;
-		width: 780px;
+		width: 1080px;
 	}
 
 	.floatlimit {
@@ -269,12 +269,12 @@
 	}
 
 	.right-column .substrate {
-		width: 450px;
+		width: 650px;
 	}
 
 	#resume .right-column .substrate {
 		padding-left: 30px;
-		width: 440px;
+		width: 640px;
 	}
 
 	.paper-clip {
@@ -290,7 +290,7 @@
 		float: right;
 		margin: 20px 20px 0 0;
 		padding: 15px;
-		width: 470px;
+		width: 970px;
 	}
 
 	/* Colored Elements */
@@ -470,20 +470,20 @@
 	}
 
 	.etabs {
-		margin-left: 155px;
+		margin-left: 300px;
 		height: 110px;
 	}
 
 	.etabs li {
 		float: left;
-		margin-right: 10px;
+		margin-right: 20px;
 	}
 
 	.etabs li a {
 		position: relative;
 		display: block;
 		overflow: hidden;
-		width: 110px;
+		width: 160px;
 		height: 80px;
 		color: #fff;
 		text-align: center;
@@ -496,13 +496,13 @@
 
 	.etabs li a:hover {
 		display: block;
-		width: 110px;
+		width: 160px;
 		height: 100px;
 	}
 
 	.etabs li a.active {
 		display: block;
-		width: 110px;
+		width: 160px;
 		height: 110px;
 	}
 
@@ -568,7 +568,7 @@
 
 	.navicon-text, .uhere-text {
 		position: absolute;
-		width: 110px;
+		width: 170px;
 		color: rgba(255,255,255,0);
 		-webkit-transition: all 0.3s ease-in-out;
 		-moz-transition: all 0.3s ease-in-out;
@@ -691,7 +691,7 @@
 	.slider-wrapper {
 		position: absolute;
 		top: -50px;
-		left: 35px;
+		left: -35px;
 		width: 270px;
 	}
 
@@ -717,7 +717,7 @@
 		position: relative;
 		overflow: hidden;
 		margin-top: 10px;
-		width: 470px;
+		width: 920px;
 	}
  
 	.info-slide-list {
@@ -732,26 +732,26 @@
 		/* maximum possible width wrapper slider */
 		left: 0px;
 		float: left;
-		width: 470px;
+		width: 920px;
 		height: 250px;
 	}
 
 	.info-slide-item {
 		float: left;
-		width: 470px;
+		width: 920px;
 		height: 300px;
 	}
 
 	.info-slide-item .left-column, .info-slide-item .right-column{
 		margin: 0;
 		padding: 0 10px 5px 0;
-		width: 220px;
+		width: 100%;
 	}
 
         .info-slide-wrapper .left-column, .info-slide-wrapper .right-column{
 		margin: 0;
 		padding: 0 10px 5px 0;
-		width: 220px;
+		width: 100%;
 	}
 
 	.info-slider .main-info-list {
@@ -1319,7 +1319,7 @@
 	}
 
 	.portfolio-content {
-		width: 780px;
+		width: 1070px;
         list-style-type: decimal;
 	}
 
@@ -1328,8 +1328,8 @@
 	.portfolio-content li {
         list-style-position: outside;
         /*display: list-item;*/
-		float: left;
-		width: 720px;
+		float: left
+		width: 1070px;
 		/*height: 165px;*/
 		-webkit-transition: .5s ease-in-out;
 		-moz-transition: .5s ease-in-out;
@@ -1553,7 +1553,7 @@
 		float: left;
 		margin: 10px;
 		margin-left: 28px;
-		width: 220px;
+		width: 1020px;
 		/*height: 65px;*/
 		border: 10px solid #fff; /* custom color 1 */
 		background: #fff;	/* custom color 1 */
@@ -2134,11 +2134,11 @@
 @media screen and (max-width: 860px) {
 
 	#content-wrapper {
-		width: 620px;
+		width: 100%;
 	}
 
 	.shadow {
-		width: 620px;
+		width: 90%;
 	}
 
 	.left-column {
@@ -2147,15 +2147,15 @@
 
 	.right-column {
 		padding-left: 0;
-		width: 270px;
+		width: 90%;
 	}
 
 	.right-column .substrate {
-		width: 230px;
+		width: 90%;
 	}
 
 	#resume .right-column .substrate {
-		width: 230px;
+		width: 90%;
 	}
 
 	.substrate {
@@ -2164,11 +2164,11 @@
 
 	.about-wrapper {
 		margin-right: 30px;
-		width: 230px;
+		width: 90%;
 	}
 
 	.full-width {
-		width: 540px;
+		width: 1040px;
 	}
 
 	.download-card{
@@ -2177,11 +2177,12 @@
 	}
 
 	.info-slider {
-		width: 500px;
+		width: 90%;
 	}
 
 	.info-slide-item {
-		width: 230px;
+		width: 80%; /* 或者增加具体像素值 */
+    	max-width: 800px;
 		height: 500px;
 	}
 
@@ -2246,7 +2247,7 @@
 	}
 
 	.portfolio-content {
-		width: 540px;
+		width: 1040px;
 	}
 
 	#map {
