@@ -1,0 +1,102 @@
+{
+  "trainingContents": {
+    "trainingTypeName": "理论知识",
+    "trainingSpeaker": "张主任、李护士长、王老师",
+    "trainingRemark": "全院正式护士与实习护士",
+    "wardCode": "8888",
+    "wardName": "护理部",
+    "trainingLineName": "线上+线下结合",
+    "trainingCategoryName": "理论知识培训月",
+    "sessionStr": {
+      "items": [
+        {
+          "item": {
+            "contents": [
+              {
+                "text": "2025-05-01 00:00~2025-05-31 23:59 会议室A + E-learning平台"
+              }
+            ]
+          },
+          "level": 0
+        }
+      ]
+    },
+    "speakerCreditStr": "张主任/李护士长/王老师 (10学时/5学分)",
+    "joinTrainingNum": "578",
+    "noJoinNum": "92",
+    "joinRate": "86.27"
+  },
+  "trainingQuestion": {
+    "unit": "%",
+    "name": "培训存在问题分析",
+    "data": [
+      {
+        "name": "个别科室未安排线下参训",
+        "subject": "TOP1",
+        "value": "1",
+        "proportion": 8
+      },
+      {
+        "name": "少数护士线上平台学习超期",
+        "subject": "TOP2",
+        "value": "2",
+        "proportion": 5
+      }
+    ]
+  },
+  "noJoin": {
+    "unit": "人",
+    "name": "培训各科室缺勤人次统计",
+    "data": [
+      {
+        "name": "内科",
+        "value": 25
+      },
+      {
+        "name": "外科",
+        "value": 15
+      },
+      {
+        "name": "妇产科",
+        "value": 12
+      },
+      {
+        "name": "儿科",
+        "value": 10
+      },
+      {
+        "name": "ICU",
+        "value": 30
+      }
+    ]
+  },
+  "joinWard": {
+    "unit": "人",
+    "name": "各科室参与培训人次分析",
+    "data": [
+      {
+        "name": "内科",
+        "value": 95
+      },
+      {
+        "name": "外科",
+        "value": 88
+      },
+      {
+        "name": "儿科",
+        "value": 60
+      },
+      {
+        "name": "ICU",
+        "value": 70
+      },
+      {
+        "name": "康复科",
+        "value": 45
+      }
+    ]
+  },
+  "evaluationAnalysis": "94%的参训者表示课程内容贴合临床，88%认为对实际工作帮助大，整体满意度较高。",
+  "existQuestion": "部分科室组织培训不及时，个别护士线上学习未按时完成，存在培训协调与考核跟进不足问题。",
+  "improvementMeasures": "护理部将优化培训计划下发流程，强化科室层级学习责任制，同时引入培训到岗提醒机制及月度学习红黄牌提示。"
+}

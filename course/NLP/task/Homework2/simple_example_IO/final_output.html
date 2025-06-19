@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>2025年5月护理部理论知识培训报告</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 1000px; margin: auto; }
+    h1, h2 { color: #2c3e50; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    th { background: #ecf0f1; }
+    .chart-container { width: 100%; max-width: 600px; margin: 30px auto; }
+    canvas { width: 100% !important; height: auto !important; }
+    .chart-caption { text-align: center; font-size: 14px; color: #555; margin-top: 5px; }
+    .quote-block {
+      background: #f9f9f9;
+      border-left: 5px solid #3498db;
+      padding: 15px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      color: #333;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>2025年5月护理部培训考试报告</h1>
+
+  <h2>一、培训情况总览</h2>
+  <table>
+    <tr><th>项目</th><th>数据</th></tr>
+    <tr><td>培训类型</td><td>理论知识</td></tr>
+    <tr><td>培训时间</td><td>2025-05-01 至 2025-05-31</td></tr>
+    <tr><td>主讲人</td><td>张主任、李护士长、王老师</td></tr>
+    <tr><td>参训人数</td><td>578</td></tr>
+    <tr><td>缺勤人数</td><td>92</td></tr>
+    <tr><td>参训率</td><td>86.27%</td></tr>
+  </table>
+
+  <h2>二、各科室参与情况</h2>
+  <div class="chart-container">
+    <canvas id="joinChart"></canvas>
+    <div class="chart-caption">图表说明：展示了各科室参与培训的人员数量，内科与外科参与度较高。</div>
+  </div>
+
+  <h2>三、培训存在问题</h2>
+  <div class="chart-container">
+    <canvas id="problemChart" style="max-width: 400px; margin: auto;"></canvas>
+    <div class="chart-caption">图表说明：主要存在两大问题：未安排线下参训与线上学习延迟。</div>
+  </div>
+
+  <h2>四、问题总结与分析建议</h2>
+  <div class="quote-block">
+    经本次培训数据统计分析发现，部分科室存在未安排线下集中培训、线上学习完成率低等问题，尤其在康复科、儿科等人员紧张科室表现突出，反映出培训计划执行与学习过程督导仍有提升空间。
+    <br><br>
+    建议：<br>
+    1）进一步强化培训计划的刚性执行机制，定期通报学习完成情况；<br>
+    2）增设夜班/节假日补训机制，保障轮班科室学习公平性；<br>
+    3）探索使用平台自动提醒与积分激励，提升主动学习意愿；<br>
+    4）对未完成培训的人员实行一对一辅导、重点跟进。
+  </div>
+
+  <script>
+    const ctx1 = document.getElementById('joinChart');
+    new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: ['内科', '外科', '儿科', 'ICU', '康复科'],
+        datasets: [{
+          label: '参训人数',
+          data: [95, 88, 60, 70, 45],
+          backgroundColor: '#3498db'
+        }]
+      },
+      options: { plugins: { legend: { display: false } }, responsive: true }
+    });
+
+    const ctx2 = document.getElementById('problemChart');
+    new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: ['未安排线下参训', '线上学习延迟'],
+        datasets: [{
+          data: [8, 5],
+          backgroundColor: ['#e74c3c', '#f39c12']
+        }]
+      },
+      options: { responsive: true }
+    });
+  </script>
+</body>
+</html>
